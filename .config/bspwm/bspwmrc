@@ -1,0 +1,45 @@
+#! /bin/sh
+
+sxhkd &
+
+fusuma -c ~/.config/fusuma/config_bspwm.yml &
+
+gnome-screensaver &
+
+killall lemonbar
+~/.config/lemonbar/lemonbar.sh | lemonbar -p -b &
+
+#feh ~/Pictures/Wallpapers/markus-spiske-9R72Kd2oTGg-unsplash.jpg --bg-fill
+#feh ~/Pictures/black.png --bg-fill
+feh ~/Pictures/priest.png --bg-fill
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+#2
+bspc config border_width         2
+#12
+bspc config window_gap          3
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+
+xinput set-prop 11 306 0
+xset s 0 0 # prohibit screen from going black
+setxkbmap de
+unclutter -idle 30 &
+#killall unclutter
+
+
+
+#bspc config normal_border_color "#000000"
+bspc config normal_border_color "#817f7f"
+
+bspc config focused_border_color "#ff0000" 
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
