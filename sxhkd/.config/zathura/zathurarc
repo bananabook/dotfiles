@@ -1,0 +1,30 @@
+set recolor
+
+map <C-+> zoom in
+map <C--> zoom out
+
+map w zoom out
+map e zoom in
+
+map u navigate next
+map i navigate previous
+
+#map y set first-page-column 1
+#map x set first-page-column 2
+
+set recolor-lightcolor \#1D1F21
+set recolor-darkcolor \#C5C8C6
+
+set default-bg \#1D1F21
+set default-fg \#C5C8C6
+
+set statusbar-bg \#1D1F21
+set statusbar-fg \#C5C8C6
+
+set inputbar-bg \#1D1F21
+set inputbar-fg \#C5C8C6
+
+set recolor-keephue
+#set recolor-reverse-video
+
+set selection-clipboard clipboard

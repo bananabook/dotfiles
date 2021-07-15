@@ -1,0 +1,10 @@
+[alias]
+	s = status
+	a = add
+	c = commit
+	co = checkout
+[user]
+	email = david.boelke@rwth-aachen.de
+	name = David Leander Boelke
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
