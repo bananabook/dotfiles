@@ -393,3 +393,4 @@ alias n="nmcli"
 lsb_release(){
 	echo Release:\t16.04
 }
+alias kc="nmcli device disconnect ipv6leakintrf0 wlp3s0 docker0"
