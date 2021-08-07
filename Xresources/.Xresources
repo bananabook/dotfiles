@@ -1,3 +1,16 @@
+Xcursor.size: 16W
+URxvt.urgentOnBell: true
+URxvt.scrollBar: false
+URxvt.font: xft:monospace:size=12,xft:Monospace:size=9:antialias=true:hinting=true
+URxvt.depth: 24
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+!URxvt.perl-ext-common: default,matcher,vtwheel
+
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
+
 ! special
 *.foreground:   #c5c8c6
 *.background:   #1d1f21
@@ -34,3 +47,4 @@
 ! white
 *.color7:       #707880
 *.color15:      #c5c8c6
+
