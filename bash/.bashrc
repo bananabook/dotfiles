@@ -174,7 +174,7 @@ alias ev="vim ~/.vimrc"
 
 alias v="vim"
 alias p="python3"
-alias pip="pip3"
+#alias pip="pip3"
 
 alias a="alsamixer"
 alias b="acpi"
