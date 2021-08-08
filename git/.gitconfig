@@ -3,6 +3,9 @@
 	a = add
 	c = commit
 	co = checkout
+	d = diff
+	pl = pull
+	pu = push
 [user]
 	email = david.boelke@rwth-aachen.de
 	name = David Leander Boelke
