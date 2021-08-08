@@ -264,6 +264,7 @@ alias ero='vim ~/.config/rofi/config.rasi'
 alias epc='vim ~/.config/polybar/config'
 alias epl='vim ~/.config/polybar/launch.sh'
 alias eza='vim ~/.config/zathura/zathurarc'
+alias egi='vim ~/.gitconfig'
 c(){
 	cd $*
 	ls
