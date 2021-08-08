@@ -34,11 +34,11 @@ super + adiaeresis
 	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 13 22; \
 	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 1014
 
-	#WINDOW=$(printf 0x%x $(xdotool getactivewindow) ); \
-	#WIDTH=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Width|awk '{print $2}'); \
-	#HEIGHT=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Height|awk '{print $2}'); \
-	#NEW_HEIGHT=`expr $WIDTH * 9 / 16`; \
-	#xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) $WIDTH $NEW_HEIGHT; \
+#WINDOW=$(printf 0x%x $(xdotool getactivewindow) ); \
+#WIDTH=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Width|awk '{print $2}'); \
+#HEIGHT=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Height|awk '{print $2}'); \
+#NEW_HEIGHT=`expr $WIDTH * 9 / 16`; \
+#xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) $WIDTH $NEW_HEIGHT; \
 
 #super + dead_circumflex
 #	xdotool F11
