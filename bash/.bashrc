@@ -370,13 +370,6 @@ cmkdir(){
 		cd $_
 }
 
-export IP_SPARK='10.134.57.51'
-#export IP_SPARK='192.168.2.117'
-export SSH_SPARK='david@'$IP_SPARK
-#alias nn='nmap -sn 10.134.57.*'
-alias nn='nmap -sn 10.134.57.*'
-alias np='ping '$IP_SPARK
-alias spark='ssh -X $SSH_SPARK'
 export LD=/home/david/Documents/hiwi/recovery/Linux_for_Tegra
 export RT=/home/david/Documents/rwth/rt/
 alias g=git
@@ -395,3 +388,13 @@ lsb_release(){
 	echo Release:\t16.04
 }
 alias kc="nmcli device disconnect ipv6leakintrf0 wlp3s0 docker0"
+
+
+
+export IP_SPARK='10.134.57.50'
+#export IP_SPARK='192.168.2.117'
+export SSH_SPARK='david@'$IP_SPARK
+#alias nn='nmap -sn 10.134.57.*'
+alias nn='nmap -sn 10.134.57.*'
+alias np='ping '$IP_SPARK
+alias spark='ssh -X $SSH_SPARK'
