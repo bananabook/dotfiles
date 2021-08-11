@@ -34,6 +34,13 @@ super + adiaeresis
 	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 13 22; \
 	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 1014
 
+super + udiaeresis
+	{oneko, \
+	killall oneko}
+super + alt + udiaeresis
+	{oneko -dog, \
+	killall oneko}
+
 #WINDOW=$(printf 0x%x $(xdotool getactivewindow) ); \
 #WIDTH=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Width|awk '{print $2}'); \
 #HEIGHT=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Height|awk '{print $2}'); \
