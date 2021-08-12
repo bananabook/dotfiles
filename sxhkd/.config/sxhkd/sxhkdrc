@@ -399,7 +399,6 @@ super + ctrl + {1,2,3,4,5,6,7,8,9,0}
 	#xbacklight -set {[1, 12, 23, 34, 45, 56, 67, 78, 89, 100] }
 super + ctrl + alt + {1,2,3,4,5,6,7,8,9,0}
 	xrandr --output HDMI1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
-  }
 
 #xrandr --output eDP-1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
 
