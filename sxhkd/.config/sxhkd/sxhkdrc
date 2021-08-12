@@ -400,6 +400,9 @@ super + ctrl + {1,2,3,4,5,6,7,8,9,0}
 super + ctrl + alt + {1,2,3,4,5,6,7,8,9,0}
 	xrandr --output HDMI1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
 
+super + alt + {ctrl,shift} + less
+	xrandr --output HDMI1 --brightness $(echo "$(xrandr --verbose |grep Brightness |grep -o '[0-9].*'){-,+}0.1" | bc)
+
 #xrandr --output eDP-1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
 
 #Volume Control
