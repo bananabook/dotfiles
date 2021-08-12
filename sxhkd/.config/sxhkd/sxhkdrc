@@ -279,7 +279,7 @@ super + alt + ctrl + {a,s,w,d}
 	bspc node -v {-120 0,0 120,0 -120,120 0}
 
 # rotate
-super +{_, ctrl} + r
+super +{ctrl,_} + r
 	bspc node @parent -R {270, 90}
 
 super + shift + r
