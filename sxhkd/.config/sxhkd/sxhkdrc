@@ -50,8 +50,10 @@ super + alt + udiaeresis
 #NEW_HEIGHT=`expr $WIDTH * 9 / 16`; \
 #xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) $WIDTH $NEW_HEIGHT; \
 
-super + dead_circumflex
+super + alt + dead_circumflex
 	amixer -q -D pulse sset Master toggle
+super + dead_circumflex
+	xdotool keyup Super_L+dead_circumflex && xdotool key F11
 #super + dead_circumflex
 #	terminator
 #super + XF86WakeUp
