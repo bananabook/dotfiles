@@ -35,10 +35,10 @@ super + adiaeresis
 	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 1014
 
 super + udiaeresis
-	{oneko, \
+	{oneko -bg black -fg grey, \
 	killall oneko}
 super + alt + udiaeresis
-	{oneko -dog, \
+	{oneko -dog -bg black -fg grey, \
 	killall oneko}
 
 #WINDOW=$(printf 0x%x $(xdotool getactivewindow) ); \
