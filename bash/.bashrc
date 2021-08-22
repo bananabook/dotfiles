@@ -134,7 +134,7 @@ rwth()
 }
 
 # ********************************************************
-source ~/.my_bashrc 
+#source ~/.my_bashrc 
 # ********************************************************
 
 title() { printf "\033]0;$*\007"; }
@@ -379,7 +379,8 @@ matlab(){
 	#setsid -f /usr/local/MATLAB/R2020b/bin/matlab
 }
 export _JAVA_AWT_WM_NONREPARENTING=1
-alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}'|tail -n1)"
+#alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}'|tail -n1)"
+alias myip="echo $(hostname -I|awk '{print $1}')"
 alias h=htop
 alias e="cd ~/p/test"
 alias x="while ! ping -i 2 x.com ; do sleep 2 ; done"
