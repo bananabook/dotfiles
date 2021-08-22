@@ -1,7 +1,7 @@
 #! /bin/sh
 
 #setxkbmap de
-setxkbmap special
+setxkbmap de
 xset r rate 200 25
 sxhkd &
 
@@ -15,7 +15,8 @@ sh /home/david/p/scripts/batter-status.sh &
 #keynav &
 
 killall unclutter
-unclutter -idle 30 -keystroke &
+unclutter -root -idle 1 &
+#unclutter -root -idle 1 -keystroke &
 
 killall fusuma
 fusuma -c ~/.config/fusuma/config_bspwm.yml &
