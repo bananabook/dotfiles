@@ -5,9 +5,9 @@
 
 # terminal emulator
 super + c
-	gnome-terminal
+	terminator
 XF86Calculator
-	gnome-terminal
+	terminator
 
 @Scroll_Lock
 	~/git/window_bounce/bounce.sh
@@ -53,13 +53,13 @@ super + alt + udiaeresis
 super + dead_circumflex
 	amixer -q -D pulse sset Master toggle
 #super + dead_circumflex
-#	gnome-terminal
+#	terminator
 #super + XF86WakeUp
-#	gnome-terminal
+#	terminator
 #super + ISO_Level3_Shift + e
-#	gnome-terminal
+#	terminator
 #super + ü
-#	gnome-terminal
+#	terminator
 
 super + {_,shift +} F9
 	bspc config center_pseudo_tiled {true, false}
@@ -76,23 +76,23 @@ super + End
 super + alt + End
 	nmcli radio wifi off
 
-	#bspc rule -a \* -o state=floating rectangle=722x434+1173+602 && gnome-terminal
+	#bspc rule -a \* -o state=floating rectangle=722x434+1173+602 && terminator
 super + ctrl + c
-	bspc rule -a \* -o state=floating rectangle=722x434+1813+602 && gnome-terminal
+	bspc rule -a \* -o state=floating rectangle=722x434+1813+602 && terminator
 
 super + ctrl + shift + c
-	bspc rule -a \* -o state=floating rectangle=722x434+33+602 && gnome-terminal
+	bspc rule -a \* -o state=floating rectangle=722x434+33+602 && terminator
 
 super + {_,shift +, ctrl + alt +}c
-	{gnome-terminal, \
-	bspc rule -a \* -o state=floating && gnome-terminal, \
-	bspc rule -a \* -o state=pseudo_tiled && gnome-terminal}
+	{terminator, \
+	bspc rule -a \* -o state=floating && terminator, \
+	bspc rule -a \* -o state=pseudo_tiled && terminator}
 
 super + alt + c
-	urxvt
+	gnome-terminal
 
 super + {_,shift +} alt +c
-	{urxvt, bspc rule -a \* -o state=floating && urxvt}
+	{gnome-terminal, bspc rule -a \* -o state=floating && gnome-terminal}
 
 ##tabbed
 # At given direction: join two windows into a new tabbed or add window to an existing tabbed
