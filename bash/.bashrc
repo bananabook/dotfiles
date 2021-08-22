@@ -388,6 +388,7 @@ alias n="nmcli"
 alias kc="nmcli device disconnect ipv6leakintrf0 wlp3s0 docker0"
 alias fd="df / -h"
 
+title Terminal
 
 
 export IP_SPARK='10.134.57.50'
