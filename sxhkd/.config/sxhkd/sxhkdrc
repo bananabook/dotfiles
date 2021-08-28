@@ -39,10 +39,11 @@ super + numbersign
 
 super + udiaeresis
 	{oneko -bg black -fg grey, \
-	killall oneko}
+	killall oneko; xsetroot -cursor_name arrow}
+
 super + alt + udiaeresis
 	{oneko -dog -bg black -fg grey, \
-	killall oneko}
+	killall oneko; xsetroot -cursor_name arrow}
 
 #WINDOW=$(printf 0x%x $(xdotool getactivewindow) ); \
 #WIDTH=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Width|awk '{print $2}'); \
