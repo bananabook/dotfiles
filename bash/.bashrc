@@ -162,8 +162,9 @@ alias rp="export PS1=\"\e[40;0;31mΔ \e[40;0;38m\""
 
 # alias r="source ranger"
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias rc='ranger ~/Documents/rwth/compiler/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias rr='ranger ~/Documents/rwth/rt/d/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias rc='ranger ~/p/rwth/compiler/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias rcl='ranger ~/p/rwth/compiler/Lectures/Slides --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias rr='ranger ~/p/rwth/rt/d/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rd='ranger ~/Downloads/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias o="setsid -f xdg-open"
 alias z="setsid -f zathura"
