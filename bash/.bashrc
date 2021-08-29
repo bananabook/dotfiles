@@ -143,7 +143,7 @@ alias pipes="/home/david/git/pipes.sh/pipes.sh -R -f 20 -p 2 -c1 -c2 -c3 -c4 -c5
 alias pipesd="/home/david/git/pipes.sh/pipes.sh"
 
 alias cl="tty-clock -c -C1"
-alias cl0="clock -d 0 -a 1"
+alias cl0="cl -d 100 -a 1"
 
 alias install="sudo apt install"
 alias remove="sudo apt remove"
