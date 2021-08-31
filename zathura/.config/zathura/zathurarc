@@ -34,3 +34,5 @@ set recolor-keephue
 #set recolor-reverse-video
 
 set selection-clipboard clipboard
+
+set window-title-page true
