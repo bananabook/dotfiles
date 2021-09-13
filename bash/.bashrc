@@ -392,7 +392,7 @@ alias kc="nmcli device disconnect wlp3s0 docker0"
 alias fd="df / -h"
 
 title Terminal
-
+export PATH="$PATH:/home/david/p/script/"
 
 export IP_SPARK='10.134.57.50'
 #export IP_SPARK='192.168.2.117'
