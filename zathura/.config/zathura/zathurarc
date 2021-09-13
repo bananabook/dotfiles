@@ -37,3 +37,5 @@ set selection-clipboard clipboard
 
 set window-title-page true
 set page-cache-size 100
+
+set guioptions none
