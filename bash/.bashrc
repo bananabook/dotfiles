@@ -388,7 +388,7 @@ alias h=htop
 alias e="cd ~/p/test"
 alias x="while ! ping -i 2 x.com ; do sleep 2 ; done"
 alias n="nmcli"
-alias kc="nmcli device disconnect ipv6leakintrf0 wlp3s0 docker0"
+alias kc="nmcli device disconnect wlp3s0 docker0"
 alias fd="df / -h"
 
 title Terminal
