@@ -7,7 +7,7 @@
 super + c
 	terminator
 XF86Calculator
-	terminator
+	gnome-calculator
 
 @Scroll_Lock
 	~/git/window_bounce/bounce.sh
