@@ -3,9 +3,13 @@
 #setxkbmap de
 setxkbmap de
 xset r rate 200 25
+#xmodprobe /home/david/.Xmodmaprc
+#xmodmap .Xmodmaprc
 sxhkd &
 
-sh /home/david/p/scripts/batter-status.sh &
+xsetroot -cursor_name arrow
+
+#sh /home/david/p/scripts/batter-status.sh &
 
 #pgrep bspswallow || bspswallow &
 #pidof bspswallow || bspswallow &
@@ -33,13 +37,17 @@ xset -dpms
 #killall lemonbar.sh
 #~/.config/lemonbar/lemonbar.sh | lemonbar  -p -b &
 
+bspc monitor HDMI1 -d 1 2 3 4 5 6 7 8 9 10
+#bspc monitor eDP1 --remove
 ###########################################################
 ## polybar
+export MONITOR="HDMI-1"
 $HOME/.config/polybar/launch.sh
 
 ###########################################################
 ## wallpapers
 
+feh ~/Pictures/wp/lake.jpg --bg-fill
 #feh ~/Pictures/wp/black.png --bg-fill
 #feh ~/Pictures/wp/surface.jpg --bg-fill
 #feh ~/Pictures/wp/mountain.jpg --bg-fill
@@ -47,21 +55,21 @@ $HOME/.config/polybar/launch.sh
 ###########################################################
 
 ##########################################################
-my_laptop_external_monitor=$(xrandr --query | grep 'HDMI1')
-if [[ $my_laptop_external_monitor = *connected* ]]; then
-	touch ~/myfile
-	#xrandr --output eDP1 --mode 1920x1080 --rotate normal --output HDMI1 --primary --mode 2560x1080 --rotate normal --right-of eDP1
-	xrandr --output HDMI1 --primary --mode 2560x1080 --rotate normal 
-	bspc monitor eDP1 -d 1 2 3 4 5
-	bspc monitor HDMI1 -d 6 7 8 9 10
-#	~/.config/lemonbar/lemonbar2.sh | lemonbar  -p -b &
-	feh --bg-fill ~/Pictures/wp/gal.jpg ~/Pictures/wp/clean.jpg 
-else
-	#bspc monitor -d I II III IV V VI VII VIII IX X
-	bspc monitor -d 1 2 3 4 5 6 7 8 9 10
-	#feh --bg-fill ~/Pictures/wp/mountain2.jpg 
-	feh --bg-fill ~/Pictures/wp/not_black.png 
-fi
+#my_laptop_external_monitor=$(xrandr --query | grep 'HDMI-1')
+#if [[ $my_laptop_external_monitor = *connected* ]]; then
+#	touch ~/myfile
+#	#xrandr --output eDP1 --mode 1920x1080 --rotate normal --output HDMI1 --primary --mode 2560x1080 --rotate normal --right-of eDP1
+#	xrandr --output HDMI-1 --primary --mode 2560x1080 --rotate normal 
+#	bspc monitor eDP-1 -d 1 2 3 4 5
+#	bspc monitor HDMI-1 -d 6 7 8 9 10
+##	~/.config/lemonbar/lemonbar2.sh | lemonbar  -p -b &
+#	feh --bg-fill ~/Pictures/wp/gal.jpg ~/Pictures/wp/clean.jpg 
+#else
+#	#bspc monitor -d I II III IV V VI VII VIII IX X
+#	bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+#	#feh --bg-fill ~/Pictures/wp/mountain2.jpg 
+#	feh --bg-fill ~/Pictures/wp/not_black.png 
+#fi
 ##########################################################
 
 bspc config border_width         2
@@ -133,3 +141,4 @@ xinput set-prop $ID $IN_MID 1
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
 ###########################################################
+setxkbmap -option altwin:swap_lalt_lwin
