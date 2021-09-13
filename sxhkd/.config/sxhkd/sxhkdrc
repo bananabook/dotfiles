@@ -57,7 +57,7 @@ super + alt + dead_circumflex
 	amixer -q -D pulse sset Master toggle
 
 super + dead_circumflex
-	xdotool keyup Super_L+dead_circumflex && xdotool key F11
+	sleep 0.4 && xdotool key F11
 
 #super + dead_circumflex
 #	terminator
