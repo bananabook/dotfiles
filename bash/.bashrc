@@ -395,7 +395,10 @@ alias fd="df / -h"
 title Terminal
 export PATH="$PATH:/home/david/p/script/"
 
-export IP_SPARK='10.134.57.50'
+export WI=wlp3s0
+export LA=enx000ec6d6e2ed
+
+export IP_SPARK='10.134.57.86'
 #export IP_SPARK='192.168.2.117'
 export SSH_SPARK='david@'$IP_SPARK
 #alias nn='nmap -sn 10.134.57.*'
