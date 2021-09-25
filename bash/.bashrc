@@ -153,10 +153,13 @@ alias clip='xclip -selection clipboard -r'
 #export CDPATH=.:/:~:/home/david/Documents/
 export EDITOR=vim
 
-export SYM=Δ
-export PS1="\e[40;0;31m\w$SYM \e[40;0;38m"
-alias ap="export PS1=\"\e[40;0;31m\w$SYM \e[40;0;38m\""
-alias rp="export PS1=\"\e[40;0;31m$SYM \e[40;0;38m\""
+export SYM=€
+#export PS1="\e[40;0;31m\w$SYM \e[40;0;38m"
+#alias ap="export PS1=\"\e[40;0;31m\w$SYM \e[40;0;38m\""
+#alias rp="export PS1=\"\e[40;0;31m$SYM \e[40;0;38m\""
+export PS1="\w$SYM "
+alias ap="export PS1=\"\w$SYM \""
+alias rp="export PS1=\"$SYM \""
 # Δ
 # $
 # \a make sound
