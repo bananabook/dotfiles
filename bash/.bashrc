@@ -376,8 +376,6 @@ cmkdir(){
 		cd $_
 }
 
-export LD=/home/david/Documents/hiwi/recovery/Linux_for_Tegra
-export RT=/home/david/Documents/rwth/rt/
 alias g=git
 matlab(){
 	export _JAVA_AWT_WM_NONREPARENTING=1
