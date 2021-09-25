@@ -34,10 +34,11 @@ super + adiaeresis
 	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 13 22; \
 	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 1014
 
-super + {_,alt +, alt + shift +} numbersign
+super + {_,alt +, alt + shift +, ctrl +} numbersign
 	{~/p/script/make_16_by_9.sh, \
 	~/p/script/make_4_by_3.sh, \
-	~/p/script/make_2_by_1.sh }
+	~/p/script/make_2_by_1.sh, \
+	~/p/script/make_21_by_9.sh}
 
 super + udiaeresis
 	{oneko -bg black -fg grey, \
