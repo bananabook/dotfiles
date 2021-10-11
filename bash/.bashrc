@@ -398,10 +398,11 @@ export PATH="$PATH:/home/david/p/script/"
 export WI=wlp3s0
 export LA=enx000ec6d6e2ed
 
-export IP_SPARK='10.134.57.86'
+export IP_SPARK='10.134.57.91'
+export IP_SPARK='10.134.57.54'
 #export IP_SPARK='192.168.2.117'
 export SSH_SPARK='david@'$IP_SPARK
 #alias nn='nmap -sn 10.134.57.*'
 alias nn='nmap -sn 10.134.57.*'
 alias np='ping '$IP_SPARK
-alias spark='ssh -X $SSH_SPARK'
+alias spark='ssh -X  -i ~/.ssh/spark $SSH_SPARK'
