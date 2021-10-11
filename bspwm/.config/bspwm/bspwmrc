@@ -143,3 +143,5 @@ xinput set-prop $ID $IN_MID 1
 # bspc rule -a Screenkey manage=off
 ###########################################################
 setxkbmap -option altwin:swap_lalt_lwin
+polybar-msg cmd hide
+bspc config bottom_padding 0
