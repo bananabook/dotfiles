@@ -378,9 +378,9 @@ cmkdir(){
 
 alias g=git
 matlab(){
-	export _JAVA_AWT_WM_NONREPARENTING=1
-	setsid -f /usr/local/MATLAB/R2020b/bin/matlab $*
-	#setsid -f /usr/local/MATLAB/R2020b/bin/matlab
+	#export _JAVA_AWT_WM_NONREPARENTING=1
+	#setsid -f /usr/local/MATLAB/R2020b/bin/matlab $*
+	setsid -f /usr/local/MATLAB/R2021b/bin/matlab
 }
 export _JAVA_AWT_WM_NONREPARENTING=1
 #alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}'|tail -n1)"
