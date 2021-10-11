@@ -47,7 +47,8 @@ $HOME/.config/polybar/launch.sh
 ###########################################################
 ## wallpapers
 
-feh ~/Pictures/wp/lake.jpg --bg-fill
+feh ~/Pictures/wp/not_black.png --bg-fill
+#feh ~/Pictures/wp/lake.jpg --bg-fill
 #feh ~/Pictures/wp/black.png --bg-fill
 #feh ~/Pictures/wp/surface.jpg --bg-fill
 #feh ~/Pictures/wp/mountain.jpg --bg-fill
