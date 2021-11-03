@@ -169,7 +169,7 @@ alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd
 alias rc='ranger ~/p/rwth/compiler/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rcl='ranger ~/p/rwth/compiler/Lectures/Slides --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rce='ranger ~/p/rwth/compiler/Exercises --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias rr='ranger ~/p/rwth/rt/d/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias rr='ranger ~/p/rwth/rt/moodle/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rd='ranger ~/Downloads/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias o="setsid -f xdg-open"
 alias z="setsid -f zathura"
@@ -317,7 +317,6 @@ eclip(){
 #	$EDITOR p/message
 #}
 
-alias f='firefox --search'
 alias tmuxa='tmux attach'
 
 alias cal='ncal -b'
@@ -341,7 +340,7 @@ alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias update='sudo apt update; sudo apt upgrade -y'
 
 alias t='vim + ~/p/t'
-alias f='vim ~/p/fortschritt'
+alias f=fg
 
 # gurobi
 export PATH="/opt/gurobi910/linux64/bin:$PATH"
@@ -392,17 +391,20 @@ alias n="nmcli"
 alias kc="nmcli device disconnect wlp3s0 docker0"
 alias fd="df / -h"
 
+alias sf="source /home/david/git/discreteadjointopenfoam_adwrapper/etc/bashrc"
 title Terminal
 export PATH="$PATH:/home/david/p/script/"
+
+alias edp1="bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10"
 
 export WI=wlp3s0
 export LA=enx000ec6d6e2ed
 
 export IP_SPARK='10.134.57.91'
-export IP_SPARK='10.134.57.54'
+export IP_SPARK='10.134.57.60'
 #export IP_SPARK='192.168.2.117'
 export SSH_SPARK='david@'$IP_SPARK
 #alias nn='nmap -sn 10.134.57.*'
 alias nn='nmap -sn 10.134.57.*'
-alias np='ping '$IP_SPARK
-alias spark='ssh -X  -i ~/.ssh/spark $SSH_SPARK'
+alias np='ping $(find_spark.sh)'
+alias spark='ssh -X  -i ~/.ssh/id_spark david@$(find_spark.sh)'
