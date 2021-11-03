@@ -25,6 +25,10 @@
   resize_down = <Primary><Shift>j
   resize_left = <Primary><Shift>h
   resize_right = <Primary><Shift>l
+  broadcast_off = None
+  broadcast_group = None
+  broadcast_all = None
+  layout_launcher = None
 [profiles]
   [[default]]
     background_color = "#1d1f21"
