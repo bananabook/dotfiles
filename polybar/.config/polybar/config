@@ -317,6 +317,7 @@ type = internal/date
 interval = 0.9
 
 date = "%A %d %B %Y  | "
+date-alt = "%A %d %B %Y  | "
 ;date-alt =
 
 time = "%H:%M "
