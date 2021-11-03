@@ -10,4 +10,4 @@
 	email = david.boelke@rwth-aachen.de
 	name = David Boelke
 [credential]
-	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+	helper = store
