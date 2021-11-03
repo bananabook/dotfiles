@@ -46,3 +46,4 @@ nnoremap <M-k> gk
 ":set tabstop=3
 ":set shiftwidth=3
 """""""""""""""""""""
+digraph bp 8226
