@@ -391,7 +391,7 @@ alias n="nmcli"
 alias kc="nmcli device disconnect wlp3s0 docker0"
 alias fd="df / -h"
 
-alias sf="source /home/david/git/discreteadjointopenfoam_adwrapper/etc/bashrc"
+alias sf="source ~/git/foam/david/discreteadjointopenfoam_adwrapper/etc/bashrc"
 title Terminal
 export PATH="$PATH:/home/david/p/script/"
 
