@@ -216,6 +216,7 @@ umat(){
 		umatdefault $*
 	fi
 }
+alias u=umat
 
 alias busy='clear; ~/p/gen_busy/genact-v0.11.0-linux-x86_64'
 alias busyb='clear; ~/p/gen_busy/genact-v0.11.0-linux-x86_64 -m bootlog'
@@ -399,6 +400,9 @@ alias edp1="bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10"
 
 export WI=wlp3s0
 export LA=enx000ec6d6e2ed
+
+##ros
+source /opt/ros/noetic/setup.bash
 
 export IP_SPARK='10.134.57.91'
 export IP_SPARK='10.134.57.60'
