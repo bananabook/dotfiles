@@ -151,6 +151,7 @@ alias remove="sudo apt remove"
 alias clip='xclip -selection clipboard -r'
 # export CDPATH=.:/mnt/c/00RWTH/:/mnt/c/00ICH/COMP/:/mnt/c/00ICH/COMP/linux
 #export CDPATH=.:/:~:/home/david/Documents/
+export CDPATH=/home/david/p/rwth
 export EDITOR=vim
 
 export SYM=€
@@ -218,8 +219,8 @@ umat(){
 }
 alias u=umat
 
-alias busy='clear; ~/p/gen_busy/genact-v0.11.0-linux-x86_64'
-alias busyb='clear; ~/p/gen_busy/genact-v0.11.0-linux-x86_64 -m bootlog'
+alias busy='clear; ~/p/install/gen_busy/genact-v0.11.0-linux-x86_64'
+alias busyb='clear; ~/p/install/gen_busy/genact-v0.11.0-linux-x86_64 -m bootlog'
 sshpry(){
 	if [ $# -eq 0 ]; then
 		sudo python3 ~/git/SSHPry2.0/sshpry2.py --list
@@ -340,7 +341,8 @@ alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 alias update='sudo apt update; sudo apt upgrade -y'
 
-alias t='vim + ~/p/t'
+#alias t='vim + ~/p/t'
+alias t='vim ~/todo'
 alias f=fg
 
 # gurobi
@@ -401,9 +403,6 @@ alias edp1="bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10"
 export WI=wlp3s0
 export LA=enx000ec6d6e2ed
 
-##ros
-source /opt/ros/noetic/setup.bash
-
 export IP_SPARK='10.134.57.91'
 export IP_SPARK='10.134.57.60'
 #export IP_SPARK='192.168.2.117'
@@ -412,3 +411,5 @@ export SSH_SPARK='david@'$IP_SPARK
 alias nn='nmap -sn 10.134.57.*'
 alias np='ping $(find_spark.sh)'
 alias spark='ssh -X  -i ~/.ssh/id_spark david@$(find_spark.sh)'
+SSH_HIWI='boelke@134.130.45.20'
+alias hiwi='ssh -X -i ~/.ssh/id_rsa $SSH_HIWI'
