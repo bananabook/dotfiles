@@ -151,15 +151,15 @@ alias remove="sudo apt remove"
 alias clip='xclip -selection clipboard -r'
 # export CDPATH=.:/mnt/c/00RWTH/:/mnt/c/00ICH/COMP/:/mnt/c/00ICH/COMP/linux
 #export CDPATH=.:/:~:/home/david/Documents/
-export CDPATH=/home/david/p/rwth
+#export CDPATH=/home/david/p/rwth
 export EDITOR=vim
 
 export SYM=€
 #export PS1="\e[40;0;31m\w$SYM \e[40;0;38m"
 #alias ap="export PS1=\"\e[40;0;31m\w$SYM \e[40;0;38m\""
 #alias rp="export PS1=\"\e[40;0;31m$SYM \e[40;0;38m\""
-export PS1="\w$SYM "
-alias ap="export PS1=\"\w$SYM \""
+export PS1="▒\w$SYM "
+alias ap="export PS1=\"▒\w$SYM \""
 alias rp="export PS1=\"$SYM \""
 # Δ
 # $
@@ -171,6 +171,7 @@ alias rc='ranger ~/p/rwth/compiler/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $
 alias rcl='ranger ~/p/rwth/compiler/Lectures/Slides --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rce='ranger ~/p/rwth/compiler/Exercises --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rr='ranger ~/p/rwth/rt/moodle/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias rrr='ranger /home/david/p/rwth/rt/klausur --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rd='ranger ~/Downloads/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias o="setsid -f xdg-open"
 alias z="setsid -f zathura"
@@ -184,8 +185,9 @@ alias p="python3"
 #alias pip="pip3"
 
 alias a="alsamixer"
-alias b="acpi"
-alias d="date"
+#alias b="acpi"
+alias b="bspc"
+#alias d="date"
 #alias wifi="nm-connection-editor"
 
 alias gt="gnome-terminal"
@@ -289,7 +291,8 @@ alias el=eclip
 vclip(){
 	#rm ~/p/message -f
 	echo > ~/p/message
-	$EDITOR ~/p/message
+	#vim -c 'startinsert' ~/p/message
+	vim ~/p/message
 	if [ -f ~/p/message ]
 		then
 			cat ~/p/message|clip
@@ -387,6 +390,7 @@ matlab(){
 export _JAVA_AWT_WM_NONREPARENTING=1
 #alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}'|tail -n1)"
 alias myip="echo $(hostname -I|awk '{print $1}')"
+alias mysecip="hostname -I|cut -d ' ' -f 2"
 alias h=htop
 alias e="cd ~/p/test"
 alias x="while ! ping -i 2 x.com ; do sleep 2 ; done"
@@ -413,3 +417,24 @@ alias np='ping $(find_spark.sh)'
 alias spark='ssh -X  -i ~/.ssh/id_spark david@$(find_spark.sh)'
 SSH_HIWI='boelke@134.130.45.20'
 alias hiwi='ssh -X -i ~/.ssh/id_rsa $SSH_HIWI'
+alias hack='sudo openvpn ~/p/hack/bananabook.ovpn'
+wttr(){
+	if [[ $1 == 'a' ]]; then
+		city=Aachen
+	elif [[ $1 == 'u' ]]; then
+		city=Unkel
+	else
+		city=$1
+	fi
+	curl wttr.in/$city 2>/dev/null |head -n -2
+}
+
+alias dockerrun="docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
+alias dr=dockerrun
+alias hb="cd ~/p/hack/battlefield"
+alias xh="xhost +local:root;exit"
+alias dc="docker commit $(docker container ls -q) "
+alias con="n d c $WI"
+alias tm="tmux"
+alias tma="tmux attach"
+alias d="docker"
