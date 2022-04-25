@@ -14,9 +14,9 @@ swipe:
     right: 
       command: 'xdotool key ctrl+Page_Down'
     up: 
-      command: 'bspc desktop -f next.local'
+      command: 'bspc desktop -f next.local.occupied'
     down: 
-      command: 'bspc desktop -f prev.local'
+      command: 'bspc desktop -f prev.local.occupied'
 pinch:
   2:
     in:
