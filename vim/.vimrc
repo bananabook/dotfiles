@@ -47,12 +47,17 @@ nnoremap <M-k> gk
 ":set tabstop=3
 ":set shiftwidth=3
 """""""""""""""""""""
-digraph bp 8226
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+digraph bp 8226 "•
+digraph :) 128516 "😄
+digraph ;) 128521 "😉
+digraph :D 128517 "😅
+digraph ;P 128540 "😜
+digraph :x 128584 "🙈
+digraph :] 129302 "🤖
+digraph :o 128559 "😯
+digraph 0: 128519 "😇
+digraph :\ 129300 "🤔
+digraph :( 128577 "🙁
 
 "" hide status
 let s:hidden_all = 0
