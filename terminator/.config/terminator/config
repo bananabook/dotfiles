@@ -8,10 +8,10 @@
   suppress_multiple_term_dialog = True
   title_font = Monospace 9
 [keybindings]
-  go_up = <Primary><Alt>k
-  go_down = <Primary><Alt>j
-  go_left = <Primary><Alt>h
-  go_right = <Primary><Alt>l
+  go_up = <Shift><Alt>k
+  go_down = <Shift><Alt>j
+  go_left = <Shift><Alt>h
+  go_right = <Shift><Alt>l
   rotate_cw = <Primary><Alt>r
   rotate_ccw = <Primary><Shift><Alt>r
   split_horiz = <Primary><Alt>u
