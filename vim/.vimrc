@@ -18,6 +18,7 @@ set shiftwidth=2
 set foldmethod=manual
 set linebreak
 set ignorecase
+set smartcase
 
 ":map <F5> :w<return>:!tmux run-shell -t 2 "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
 :map <F9> !tmux run-shell -t 2 "clear"<return>
