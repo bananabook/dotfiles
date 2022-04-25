@@ -7,7 +7,7 @@
 	pl = pull
 	ps = push
 [user]
-	email = david.boelke@rwth-aachen.de
-	name = David Boelke
+	email = leach-david@web.de
+	name = bananabook
 [credential]
 	helper = store
