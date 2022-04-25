@@ -48,6 +48,7 @@ $HOME/.config/polybar/launch.sh
 ## wallpapers
 
 feh ~/Pictures/wp/not_black.png --bg-fill
+#feh ~/Pictures/wp/cliff.jpg --bg-fill
 #feh ~/Pictures/wp/lake.jpg --bg-fill
 #feh ~/Pictures/wp/black.png --bg-fill
 #feh ~/Pictures/wp/surface.jpg --bg-fill
@@ -145,3 +146,6 @@ xinput set-prop $ID $IN_MID 1
 setxkbmap -option altwin:swap_lalt_lwin
 polybar-msg cmd hide
 bspc config bottom_padding 0
+nmcli d d ipv6leakintrf0
+/home/david/p/script/batteryd/do.sh start
+#~/read/r
