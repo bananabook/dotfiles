@@ -79,3 +79,4 @@ endfunction
 
 nnoremap <F5> :call ToggleHiddenAll()<CR>
 "" hide status -end-
+set background=dark
