@@ -147,5 +147,5 @@ setxkbmap -option altwin:swap_lalt_lwin
 polybar-msg cmd hide
 bspc config bottom_padding 0
 nmcli d d ipv6leakintrf0
-/home/david/p/script/batteryd/do.sh start
+#/home/david/p/script/batteryd/do.sh start
 #~/read/r
