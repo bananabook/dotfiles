@@ -192,6 +192,8 @@ super + comma
 # firefox
 super + f
 	firefox
+super + alt + t
+	thunderbird
 #bspc rule -a \* -o state=floating rectangle=722x1014+1173+22 && firefox
 super + ctrl + f
 	bspc rule -a \* -o state=floating rectangle=722x1014+1813+22 && firefox
