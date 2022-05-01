@@ -3,6 +3,7 @@
 	a = add
 	c = commit
 	co = checkout
+	b = branch
 	d = diff
 	pl = pull
 	ps = push
