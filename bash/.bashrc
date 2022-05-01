@@ -160,7 +160,7 @@ export SYM=€
 #alias rp="export PS1=\"\e[40;0;31m$SYM \e[40;0;38m\""
 export PS1="▒\w$SYM "
 alias ap="export PS1=\"▒\w$SYM \""
-alias rp="export PS1=\"$SYM \""
+alias rp="export PS1=\"▒$SYM \""
 # Δ
 # $
 # \a make sound
