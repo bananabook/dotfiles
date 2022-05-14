@@ -198,7 +198,7 @@ uumat(){
 
 umatdefault(){
   #-s 95
-	python3 ~/git/unimatrix/unimatrix.py -a  -f $*
+	python3 ~/git/unimatrix/unimatrix.py -c red -a  -f $*
 }
 
 umat(){ 
