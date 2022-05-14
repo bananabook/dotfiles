@@ -147,10 +147,10 @@ super + n; r
 
 # Toggle polybar
 super + y
-	{polybar-msg cmd show;\
-	bspc config -m $(bspc query -m focused -M --names) bottom_padding 20,\
-	bspc config -m $(bspc query -m focused -M --names) bottom_padding 0;\
-	polybar-msg cmd hide}
+	{bspc config -m $(bspc query -m focused -M --names) bottom_padding 0;\
+	polybar-msg cmd hide,\
+	polybar-msg cmd show;\
+	bspc config -m $(bspc query -m focused -M --names) bottom_padding 20}
 
 # Toggle cursor
 super + alt + y
