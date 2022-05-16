@@ -327,8 +327,9 @@ alias tmuxa='tmux attach'
 alias cal='ncal -b'
 
 #cisco
+VPN_RWTH=vpn.rwth-aachen.de
 alias ca='/opt/cisco/anyconnect/bin/vpn'
-alias cac='/opt/cisco/anyconnect/bin/vpn connect $VPN_IRT'
+alias cac='/opt/cisco/anyconnect/bin/vpn connect $VPN_RWTH'
 alias cad='/opt/cisco/anyconnect/bin/vpn disconnect'
 
 alias shut='shutdown now'
