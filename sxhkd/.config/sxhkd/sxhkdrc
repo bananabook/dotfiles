@@ -468,7 +468,10 @@ super + alt + Delete
 
 # make sxhkd reload its configuration files:
 super + F1
-	pkill -USR1 -x sxhkd
+	terminator
+super + F6
+	killall sxhkd;sxhkd &
+#	pkill -USR1 -x sxhkd
 
 super + Escape
 	xdg-screensaver lock;\
