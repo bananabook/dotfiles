@@ -146,6 +146,8 @@ xinput set-prop $ID $IN_MID 1
 # bspc rule -a Screenkey manage=off
 ###########################################################
 setxkbmap -option altwin:swap_lalt_lwin
+setxkbmap -option caps:escape_shifted_capslock
+#setxkbmap -option caps:swapescape
 polybar-msg cmd hide
 bspc config bottom_padding 0
 nmcli d d ipv6leakintrf0
