@@ -346,7 +346,7 @@ alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias update='sudo apt update; sudo apt upgrade -y'
 
 #alias t='vim + ~/p/t'
-alias t='vim ~/todo'
+alias todo='vim ~/todo'
 alias f=fg
 
 # gurobi
@@ -397,7 +397,7 @@ alias e="cd ~/p/test"
 alias x="while ! ping -i 2 x.com ; do sleep 2 ; done"
 alias n="nmcli"
 alias kc="nmcli device disconnect wlp3s0 docker0"
-alias fd="df / -h"
+alias dfr="df / -h"
 
 alias sf="source ~/git/foam/david/discreteadjointopenfoam_adwrapper/etc/bashrc"
 title Terminal
@@ -438,9 +438,9 @@ alias dc="docker commit $(docker container ls -q) "
 #alias con="n d c $WI"
 alias con="/home/david/p/test/connect_auto/do.sh start"
 alias bat="/home/david/p/script/batteryd/do.sh start"
-alias tm="tmux"
-alias tme="tmux;exit"
-alias tma="tmux attach"
+alias t="tmux"
+alias te="tmux;exit"
+alias ta="tmux attach"
 alias d="docker"
 alias ok="setsid -f okular"
 lc () {
@@ -458,3 +458,6 @@ lc () {
 }
 
 alias normount="sudo mount -o uid=1000,gid=1000 "
+alias et="echo $TMUX"
+export CDPATH=~
+alias aptf="apt list|grep "
