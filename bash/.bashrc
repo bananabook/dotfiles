@@ -460,4 +460,4 @@ lc () {
 alias normount="sudo mount -o uid=1000,gid=1000 "
 alias et="echo $TMUX"
 export CDPATH=~
-alias aptf="apt list|grep "
+alias aptf="apt list|grep -P "
