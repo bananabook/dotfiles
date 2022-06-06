@@ -140,17 +140,20 @@ super + {_,shift +} alt +c
 
 ##tabbed
 # At given direction: join two windows into a new tabbed or add window to an existing tabbed
-super + n; {h,j,k,l}
-	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
+#super + n; {h,j,k,l}
+#	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
 
 #	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n focused) add $(bspc query -N -n {west,south,north,east})
 
 
 # Remove current tab from tabbed
-super + n; r
-	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n focused) remove
+#super + n; r
+#	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n focused) remove
 
 # Toggle polybar
+super + n
+	nofity-send hi
+
 super + y
 	{bspc config -m eDP1 bottom_padding 0;\
 	polybar-msg cmd hide,\
@@ -292,8 +295,10 @@ super + {shift,ctrl} + y
    bspc desktop -l {monocle,tiled}
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}' -m focused
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}' -m focused
+super + shift + {1-9,0}
+	bspc node -d '^{1-9,10}'
 super + shift + alt + {1-9,0}
 	bspc node -d '^{1-9,10}' --follow -m focused
 
@@ -488,13 +493,13 @@ super + {F4,F5}
 # tabbed
 
 # Remove current tab from tabbed
-super + n; r
-	source /home/david/p/tabbed/tabc.sh $(bspc query -N -n focused) remove
+#super + n; r
+#	source /home/david/p/tabbed/tabc.sh $(bspc query -N -n focused) remove
 
 # At given direction: join two windows into a new tabbed or add window to an existing tabbed
-super + n; {Left,Down,Up,Right}
-	source /home/david/p/tabbed/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused);\
-	notify-send ja
+#super + n; {Left,Down,Up,Right}
+#	source /home/david/p/tabbed/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused);\
+#	notify-send ja
 
 # padd
 #super + alt + ctrl + {z,u,i,o}
