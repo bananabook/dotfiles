@@ -167,6 +167,7 @@ alias rp="export PS1=\"▒$SYM \""
 
 # alias r="source ranger"
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias i='lc'
 alias rc='ranger ~/p/rwth/compiler/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rcl='ranger ~/p/rwth/compiler/Lectures/Slides --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rce='ranger ~/p/rwth/compiler/Exercises --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
