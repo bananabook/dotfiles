@@ -30,7 +30,7 @@ set smartcase
 :map <F3> :set wrap!<return>
 :map <F4> :set cursorline!<return>
 :noremap ' `
-:inoremap jk <ESC>
+:inoremap jk x<BS><ESC>
 
 "" tab visualization
 :set list
@@ -112,3 +112,12 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:las
 
 " make it possible to leave edited and unstored buffers
 set hidden
+
+"" indent backjump
+"set indentexpr=GetIndent()
+"
+"function GetIndent()
+"   let lnum = prevnonblank(v:lnum - 1)
+"   let ind = indent(lnum)
+"   return ind
+"endfunction
