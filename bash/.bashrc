@@ -347,7 +347,7 @@ alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias update='sudo apt update; sudo apt upgrade -y'
 
 #alias t='vim + ~/p/t'
-alias todo='vim ~/todo'
+alias todo='vim ~/p/todo'
 alias f=fg
 
 # gurobi
