@@ -442,6 +442,7 @@ alias bat="/home/david/p/script/batteryd/do.sh start"
 alias t="tmux"
 alias te="tmux;exit"
 alias ta="tmux attach"
+alias tae="tmux attach;exit"
 alias d="docker"
 alias ok="setsid -f okular"
 lc () {
