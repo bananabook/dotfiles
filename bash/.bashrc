@@ -397,7 +397,7 @@ alias h=htop
 alias e="cd ~/p/test"
 alias x="while ! ping -i 2 x.com ; do sleep 2 ; done"
 alias n="nmcli"
-alias kc="nmcli device disconnect wlp3s0 docker0"
+#alias kc="nmcli device disconnect wlp3s0 docker0"
 alias dfr="df / -h"
 
 alias sf="source ~/git/foam/david/discreteadjointopenfoam_adwrapper/etc/bashrc"
@@ -431,11 +431,11 @@ wttr(){
 	curl wttr.in/$city 2>/dev/null |head -n -2
 }
 
-alias dockerrun="docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
-alias dr=dockerrun
+#alias dockerrun="docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
+#alias dr=dockerrun
 alias hb="cd ~/p/hack/battlefield"
 alias xh="xhost +local:root;exit"
-alias dc="docker commit $(docker container ls -q) "
+#alias dc="docker commit $(docker container ls -q) "
 #alias con="n d c $WI"
 alias con="/home/david/p/test/connect_auto/do.sh start"
 alias bat="/home/david/p/script/batteryd/do.sh start"
@@ -443,7 +443,7 @@ alias t="tmux"
 alias te="tmux;exit"
 alias ta="tmux attach"
 alias tae="tmux attach;exit"
-alias d="docker"
+#alias d="docker"
 alias ok="setsid -f okular"
 lc () {
     tmp="$(mktemp)"
