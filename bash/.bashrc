@@ -464,3 +464,4 @@ alias et="echo $TMUX"
 export CDPATH=~
 alias aptf="apt list|grep -P "
 alias fd="fdfind"
+alias rdl="readlink -e"

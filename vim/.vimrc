@@ -30,7 +30,7 @@ set smartcase
 :map <F3> :set wrap!<return>
 :map <F4> :set cursorline!<return>
 :noremap ' `
-:inoremap jk x<BS><ESC>
+:inoremap kj x<BS><ESC>
 
 "" tab visualization
 :set list
