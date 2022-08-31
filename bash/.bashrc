@@ -277,8 +277,13 @@ alias epl='vim ~/.config/polybar/launch.sh'
 alias eza='vim ~/.config/zathura/zathurarc'
 alias egi='vim ~/.gitconfig'
 c(){
-	cd $*
-	ls
+	if [[ "$*" == "" ]];then
+		cd
+		ls
+	else
+		cd "$*"
+		ls
+	fi
 }
 
 sb(){
@@ -397,7 +402,7 @@ alias h=htop
 alias e="cd ~/p/test"
 alias x="while ! ping -i 2 x.com ; do sleep 2 ; done"
 alias n="nmcli"
-alias kc="nmcli device disconnect wlp3s0 docker0"
+#alias kc="nmcli device disconnect wlp3s0 docker0"
 alias dfr="df / -h"
 
 alias sf="source ~/git/foam/david/discreteadjointopenfoam_adwrapper/etc/bashrc"
@@ -431,36 +436,55 @@ wttr(){
 	curl wttr.in/$city 2>/dev/null |head -n -2
 }
 
-alias dockerrun="docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
+alias dockerrun="sudo docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
 alias dr=dockerrun
 alias hb="cd ~/p/hack/battlefield"
 alias xh="xhost +local:root;exit"
-alias dc="docker commit $(docker container ls -q) "
+#alias dc="docker commit $(docker container ls -q) "
 #alias con="n d c $WI"
 alias con="/home/david/p/test/connect_auto/do.sh start"
 alias bat="/home/david/p/script/batteryd/do.sh start"
 alias t="tmux"
-alias te="tmux;exit"
-alias ta="tmux attach"
-alias tae="tmux attach;exit"
-alias d="docker"
+te(){
+	tmux $* ;exit
+}
+ta(){
+	tmux attach $*
+}
+tl(){
+	tmux $* ls
+}
+tae(){
+	tmux $* attach;exit
+}
+alias d="sudo docker"
+alias dp="d ps -a --format 'table {{.ID}} {{.Image}}\t{{.Status}}\t{{.Names}}'"
 alias ok="setsid -f okular"
 lc () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
+	tmp="$(mktemp)"
+	lf -last-dir-path="$tmp" "$@"
+	if [ -f "$tmp" ]; then
+		dir="$(cat "$tmp")"
+		rm -f "$tmp"
+		if [ -d "$dir" ]; then
+			if [ "$dir" != "$(pwd)" ]; then
+				cd "$dir"
+			fi
+		fi
+	fi
 }
 
 alias normount="sudo mount -o uid=1000,gid=1000 "
-alias et="echo $TMUX"
-export CDPATH=~
+alias et="vim ~/.tmux.conf"
+#export CDPATH=~
 alias aptf="apt list|grep -P "
 alias fd="fdfind"
+alias    connect="nmcli d c $WI;echo yes > ~/.autoconnect"
+alias disconnect="nmcli d d $WI;echo  no > ~/.autoconnect"
+alias  reconnect="nmcli d d $WI;nmcli d c $WI;echo  yes > ~/.autoconnect"
+alias sudo="sudo "
+alias rdl="readlink -e"
+alias tv="~/.tv"
+alias fing5='sudo docker run --rm -it --net=host --name dockerFing apigem/docker-fing'
+PROMPT_DIRTRIM=3
+alias watch="watch "
