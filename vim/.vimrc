@@ -20,7 +20,8 @@ set linebreak
 set ignorecase
 set smartcase
 
-":map <F5> :w<return>:!tmux run-shell -t 2 "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
+":map <F5> :w<return>:!tmux run-shell "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
+:map <F5> :w<return>:!make<return><return>
 :map <F9> !tmux run-shell -t 2 "clear"<return>
 :map <c-k> <C-y>
 :map <c-j> <C-e>
@@ -30,12 +31,22 @@ set smartcase
 :map <F3> :set wrap!<return>
 :map <F4> :set cursorline!<return>
 :noremap ' `
-:inoremap jk x<BS><ESC>
+:inoremap kj x<BS><ESC>
+
+":let searchbak=@/<CR>
+":let @/=searchbak<CR>
+"nnoremap gd /\%<C-R>=virtcol(".")<CR>v\S<CR>
+"
+"nnoremap gu ?\%<C-R>=virtcol(".")<CR>v\S<CR>
+
 
 "" tab visualization
 :set list
 ":set listchars=tab:\ \|     " > is shown at the beginning, - throughout
 :set listchars=tab:\|\     " > is shown at the beginning, - throughout
+:set listchars+=eol:\€     " > is shown at the beginning, - throughout
+":set listchars+=space:·     " > is shown at the beginning, - throughout
+
 
 execute "set <M-j>=\ej"
 nnoremap <M-j> gj
@@ -58,6 +69,8 @@ digraph :o 128559 "😯
 digraph 0: 128519 "😇
 digraph :\ 129300 "🤔
 digraph :( 128577 "🙁
+digraph fs 9733 "★
+digraph es 9734 "☆
 
 "" hide status
 let s:hidden_all = 0
@@ -77,7 +90,7 @@ function! ToggleHiddenAll()
     endif
 endfunction
 
-nnoremap <F5> :call ToggleHiddenAll()<CR>
+"nnoremap <F5> :call ToggleHiddenAll()<CR>
 "" hide status -end-
 set background=dark
 "autopaste
