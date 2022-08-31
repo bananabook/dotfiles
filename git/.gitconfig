@@ -1,12 +1,15 @@
 [alias]
-	s = status
-	a = add
-	c = commit
+	s  = status
+	sw = switch
+	a  = add
+	c  = commit
 	co = checkout
-	b = branch
-	d = diff
+	b  = branch
+	d  = diff
 	pl = pull
 	ps = push
+	l  = "log --oneline"
+	ll = log
 [user]
 	email = leach-david@web.de
 	name = bananabook
