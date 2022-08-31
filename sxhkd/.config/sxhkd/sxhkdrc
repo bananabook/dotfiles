@@ -46,7 +46,7 @@ super + {_,alt +, shift +, ctrl +} numbersign
 
 # terminal emulator
 super + c
-	terminator
+	kitty
 XF86Calculator
 	gnome-calculator
 
@@ -128,15 +128,17 @@ super + ctrl + shift + c
 	bspc rule -a \* -o state=floating rectangle=722x434+33+602 && terminator
 
 super + {_,shift +, ctrl + alt +}c
-	{terminator, \
-	bspc rule -a \* -o state=floating && terminator, \
+	{kitty, \
+	bspc rule -a \* -o state=floating && kitty, \
 	bspc rule -a \* -o state=pseudo_tiled && terminator}
 
 super + alt + c
-	gnome-terminal
+	terminator
+#	firefox
+#	gnome-terminal
 
-super + {_,shift +} alt +c
-	{gnome-terminal, bspc rule -a \* -o state=floating && gnome-terminal}
+#super + {_,shift +} alt +c
+#	{gnome-terminal, bspc rule -a \* -o state=floating && kitty}
 
 ##tabbed
 # At given direction: join two windows into a new tabbed or add window to an existing tabbed
@@ -152,9 +154,6 @@ super + {_,shift +} alt +c
 
 # Toggle polybar
 super + n
-	nofity-send hi
-
-super + y
 	{bspc config -m eDP1 bottom_padding 0;\
 	polybar-msg cmd hide,\
 	polybar-msg cmd show;\
@@ -473,7 +472,7 @@ super + alt + Delete
 
 # make sxhkd reload its configuration files:
 super + F1
-	terminator
+	kitty
 super + F6
 	killall sxhkd;sxhkd &
 #	pkill -USR1 -x sxhkd
