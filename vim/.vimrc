@@ -59,6 +59,10 @@ digraph 0: 128519 "😇
 digraph :\ 129300 "🤔
 digraph :( 128577 "🙁
 
+"go up and down
+nnoremap gd :let searchbak=@/<CR>/\%<C-R>=virtcol(".")<CR>v\S<CR>:let @/=searchbak<CR>
+nnoremap gu :let searchbak=@/<CR>?\%<C-R>=virtcol(".")<CR>v\S<CR>:let @/=searchbak<CR>
+
 "" hide status
 let s:hidden_all = 0
 function! ToggleHiddenAll()

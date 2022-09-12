@@ -465,3 +465,4 @@ export CDPATH=~
 alias aptf="apt list|grep -P "
 alias fd="fdfind"
 alias rdl="readlink -e"
+set bell-style none
