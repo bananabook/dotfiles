@@ -356,8 +356,8 @@ alias todo='vim ~/p/todo'
 alias f=fg
 
 # gurobi
-export PATH="/opt/gurobi910/linux64/bin:$PATH"
-export PATH="/home/david/git/bspswallow:$PATH"
+#export PATH="/opt/gurobi910/linux64/bin:$PATH"
+#export PATH="/home/david/git/bspswallow:$PATH"
 export GUROBI_HOME="/opt/gurobi910/linux64"
 
 # bspc
@@ -446,16 +446,16 @@ alias con="/home/david/p/test/connect_auto/do.sh start"
 alias bat="/home/david/p/script/batteryd/do.sh start"
 alias t="tmux"
 te(){
-	tmux $* ;exit
+	tmux "$@" ;exit
 }
 ta(){
-	tmux attach $*
+	tmux attach "$*"
 }
 tl(){
-	tmux $* ls
+	tmux "$@" ls
 }
 tae(){
-	tmux $* attach;exit
+	tmux attach "$@";echo ho
 }
 alias d="sudo docker"
 alias dp="d ps -a --format 'table {{.ID}} {{.Image}}\t{{.Status}}\t{{.Names}}'"
@@ -476,7 +476,7 @@ lc () {
 
 alias normount="sudo mount -o uid=1000,gid=1000 "
 alias et="vim ~/.tmux.conf"
-#export CDPATH=~
+export CDPATH=~/q
 alias aptf="apt list|grep -P "
 alias fd="fdfind"
 alias    connect="nmcli d c $WI;echo yes > ~/.autoconnect"
@@ -488,3 +488,6 @@ alias tv="~/.tv"
 alias fing5='sudo docker run --rm -it --net=host --name dockerFing apigem/docker-fing'
 PROMPT_DIRTRIM=3
 alias watch="watch "
+# GoLang
+export PATH="$PATH:/home/david/go/bin"
+alias fi="firefox"
