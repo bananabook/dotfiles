@@ -11,7 +11,7 @@
 	l  = "log --oneline"
 	ll = log
 [user]
-	email = leach-david@web.de
-	name = bananabook
+	email = none
+	name = none
 [credential]
 	helper = store
