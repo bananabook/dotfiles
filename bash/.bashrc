@@ -220,6 +220,7 @@ umat(){
 		umatdefault $*
 	fi
 }
+
 alias u=umat
 
 alias busy='clear; ~/p/install/gen_busy/genact-v0.11.0-linux-x86_64'
@@ -436,8 +437,8 @@ wttr(){
 	curl wttr.in/$city 2>/dev/null |head -n -2
 }
 
-alias dockerrun="sudo docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
-alias dr=dockerrun
+alias drr="sudo docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
+alias dr="sudo docker run"
 alias hb="cd ~/p/hack/battlefield"
 alias xh="xhost +local:root;exit"
 #alias dc="docker commit $(docker container ls -q) "
@@ -449,13 +450,13 @@ te(){
 	tmux "$@" ;exit
 }
 ta(){
-	tmux attach "$*"
+	tmux attach "$@"
 }
 tl(){
 	tmux "$@" ls
 }
 tae(){
-	tmux attach "$@";echo ho
+	tmux attach "$@";exit
 }
 alias d="sudo docker"
 alias dp="d ps -a --format 'table {{.ID}} {{.Image}}\t{{.Status}}\t{{.Names}}'"
@@ -476,7 +477,6 @@ lc () {
 
 alias normount="sudo mount -o uid=1000,gid=1000 "
 alias et="vim ~/.tmux.conf"
-export CDPATH=~/q
 alias aptf="apt list|grep -P "
 alias fd="fdfind"
 alias    connect="nmcli d c $WI;echo yes > ~/.autoconnect"
@@ -491,3 +491,4 @@ alias watch="watch "
 # GoLang
 export PATH="$PATH:/home/david/go/bin"
 alias fi="firefox"
+alias y="nvim"
