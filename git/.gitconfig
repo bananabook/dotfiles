@@ -10,5 +10,8 @@
 	ps = push
 	l  = "log --oneline"
 	ll = log
+[user]
+	email = leach-david@web.de
+	name = bananabook
 [credential]
 	helper = store
