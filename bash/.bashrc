@@ -490,5 +490,5 @@ PROMPT_DIRTRIM=3
 alias watch="watch "
 # GoLang
 export PATH="$PATH:/home/david/go/bin"
-alias fi="firefox"
+alias fire="firefox"
 alias y="nvim"
