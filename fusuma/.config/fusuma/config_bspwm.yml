@@ -25,9 +25,9 @@ pinch:
       command: 'xdotool key ctrl+minus'
   3:
     in:
-      command: 'firefox'
+      command: 'killall unclutter'
     out:
-      command: 'gnome-terminal'
+      command: 'unclutter -root -idle 1'
   4:
     in:
       command: ''

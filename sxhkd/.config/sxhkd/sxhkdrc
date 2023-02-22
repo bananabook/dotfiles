@@ -35,7 +35,7 @@ super + alt + shift + {a,s,w,d}
 
 super + alt + x
 	bspc node -g locked=on
-super + shift + x
+super + alt + shift + x
 	bspc node -g locked=off
 
 super + {_,alt +, shift +, ctrl +} numbersign
@@ -46,7 +46,7 @@ super + {_,alt +, shift +, ctrl +} numbersign
 
 # terminal emulator
 super + c
-	kitty
+	terminator -T Terminal -e tmux
 XF86Calculator
 	gnome-calculator
 
@@ -111,14 +111,21 @@ super + {_,shift +} F9
 super + {_,shift +} F10
 	bspc config swallow_first_click {false, true}
 
+super + shift + less
+	/home/david/p/script/a
 super + Home
-	nmcli connection up WLAN-458627
-super + alt + Home
-	nmcli connection down WLAN-458627
+	/home/david/p/script/phonevol raise
 super + End
-	nmcli radio wifi on
-super + alt + End
-	nmcli radio wifi off
+	/home/david/p/script/phonevol lower
+
+#super + Home
+#	nmcli connection up WLAN-458627
+#super + alt + Home
+#	nmcli connection down WLAN-458627
+#super + End
+#	nmcli radio wifi on
+#super + alt + End
+#	nmcli radio wifi off
 
 #	bspc rule -a \* -o state=floating rectangle=722x434+1173+602 && terminator
 super + ctrl + c
@@ -128,8 +135,8 @@ super + ctrl + shift + c
 	bspc rule -a \* -o state=floating rectangle=722x434+33+602 && terminator
 
 super + {_,shift +, ctrl + alt +}c
-	{kitty, \
-	bspc rule -a \* -o state=floating && kitty, \
+	{terminator, \
+	bspc rule -a \* -o state=floating && terminator, \
 	bspc rule -a \* -o state=pseudo_tiled && terminator}
 
 super + alt + c
@@ -154,10 +161,13 @@ super + alt + c
 
 # Toggle polybar
 super + n
-	{bspc config -m eDP1 bottom_padding 0;\
+	{bspc config -m primary bottom_padding 0;\
 	polybar-msg cmd hide,\
 	polybar-msg cmd show;\
-	bspc config -m eDP1 bottom_padding 20}
+	bspc config -m primary bottom_padding 20}
+
+super + ctrl + shift + Tab
+	bspc node -m next --follow
 
 # Toggle cursor
 super + alt + y
@@ -170,8 +180,7 @@ super + alt + y
 
 # weblinks
 super +b
-	{bspc config -m focused borderless_monocle   false,\
-	bspc config -m focused borderless_monocle   true}
+	/home/david/p/script/a
 #super +b; {c, r, m}
 #	firefox {\
 #	https://moodle.rwth-aachen.de/course/view.php?id=12679 ,\
@@ -227,7 +236,7 @@ super + space
 
 
 # close and kill
-super + {_,shift + alt +} @x
+super + {ctrl,ctrl + alt +} @x
 	bspc node -{c,k}
 
 
@@ -290,7 +299,7 @@ super + alt + {q,e}
 	bspc desktop -f {prev,next}.local.occupied
 
 # alternate between the tiled and monocle layout
-super + {shift,ctrl} + y
+super + {alt + ctrl ,ctrl} + y
    bspc desktop -l {monocle,tiled}
 
 # focus or send to the given desktop
@@ -434,9 +443,13 @@ super + shift + ctrl + i
 #Brightness Control
 super + ctrl + {1,2,3,4,5,6,7,8,9,0}
 	xrandr --output eDP1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
+super + ctrl + dead_circumflex
+	xrandr --output eDP1 --brightness 0
 	#xbacklight -set {[1, 12, 23, 34, 45, 56, 67, 78, 89, 100] }
 super + ctrl + alt + {1,2,3,4,5,6,7,8,9,0}
 	xrandr --output HDMI1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
+super + ctrl + alt + dead_circumflex
+	xrandr --output HDMI1 --brightness 0
 
 super + alt + {ctrl,shift} + less
 	xrandr --output eDP1 --brightness $(echo "$(xrandr --verbose |grep Brightness |grep -o '[0-9].*'){-,+}0.1" | bc)
@@ -459,20 +472,29 @@ XF86AudioMute
 super + alt + {1,2,3,4,5,6,7,8,9,0}
 	amixer -D pulse sset Master {10%,20%,30%,40%,50%,60%,70%,80%,90%,100%}
 
-super + ctrl + less
+#super + ctrl + less
+super + y
 	amixer -D pulse sset Master 5%-
-super + shift + less
+super + shift + y
+	amixer -D pulse sset Master 1%-
+#super + shift + less
+super + x
 	amixer -D pulse sset Master 5%+
+super + shift + x
+	amixer -D pulse sset Master 1%+
 
 super + Delete
-	amixer -q -D pulse sset Master toggle
+	amixer -q -D pulse sset Master mute
+super + shift + Delete
+	amixer -q -D pulse sset Master unmute
 super + alt + Delete
-	{amixer set Capture nocap, \
-	amixer set Capture cap}
+	amixer set Capture nocap
+super + alt + shift + Delete
+	amixer set Capture cap
 
 # make sxhkd reload its configuration files:
 super + F1
-	kitty
+	terminator
 super + F6
 	killall sxhkd;sxhkd &
 #	pkill -USR1 -x sxhkd
@@ -486,7 +508,7 @@ super + Escape
 #
 
 # quit/restart bspwm
-super + {F4,F5}
+super + {ctrl + F4,ctrl + F5}
 	bspc {quit,wm -r}
 
 # tabbed

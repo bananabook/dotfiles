@@ -30,6 +30,7 @@ gnome-screensaver &
 #gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 # no more blackscreen
+xset s off
 xset -dpms
 
 ###########################################################
@@ -39,7 +40,7 @@ xset -dpms
 #~/.config/lemonbar/lemonbar.sh | lemonbar  -p -b &
 
 #xrandr --output HDMI1 --right-of eDP1 --primary
-bspc monitor  eDP1 -d 1 2 3 4 5 6 7 8 9 10
+#bspc monitor  eDP1 -d 1 2 3 4 5 6 7 8 9 10
 #bspc monitor HDMI1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h10
 #bspc monitor eDP1 --remove
 ###########################################################
@@ -60,8 +61,22 @@ feh ~/Pictures/wp/not_black.png --bg-fill
 ###########################################################
 
 ##########################################################
-#my_laptop_external_monitor=$(xrandr --query | grep 'HDMI-1')
-#if [[ $my_laptop_external_monitor = *connected* ]]; then
+bash -c "/home/david/p/test/bspwm/ifa.sh"
+
+my_laptop_external_monitor=$(xrandr --query | grep 'HDMI1')
+
+echo 1 $my_laptop_external_monitor >> /tmp/wow
+if [[ $my_laptop_external_monitor = *connected* ]]; then
+	echo hitit>> /tmp/wow
+	one=HDMI1
+	two=eDP1
+	xrandr --output $one --primary --right-of $two --mode 2560x1080 --output $two --mode 1920x1080
+	bspc monitor HDMI1 -d 1 2 3 4 5 6
+	bspc monitor eDP1  -d a b c d e f
+else
+	echo no-hitit>> /tmp/wow
+	bspc monitor eDP1  -d 1 2 3 4 5 6 7 8 9 10
+fi
 #	touch ~/myfile
 #	#xrandr --output eDP1 --mode 1920x1080 --rotate normal --output HDMI1 --primary --mode 2560x1080 --rotate normal --right-of eDP1
 #	xrandr --output HDMI-1 --primary --mode 2560x1080 --rotate normal 

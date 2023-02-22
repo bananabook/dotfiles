@@ -401,7 +401,7 @@ alias myip="echo $(hostname -I|awk '{print $1}')"
 alias mysecip="hostname -I|cut -d ' ' -f 2"
 alias h=htop
 alias e="cd ~/p/test"
-alias x="while ! ping -i 2 x.com ; do sleep 2 ; done"
+alias x="while ! ping -i 2 1.1.1.1 ; do sleep 2 ; done"
 alias n="nmcli"
 #alias kc="nmcli device disconnect wlp3s0 docker0"
 alias dfr="df / -h"
@@ -439,6 +439,7 @@ wttr(){
 
 alias drr="sudo docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
 alias dr="sudo docker run"
+alias hh="cd ~/p/hack"
 alias hb="cd ~/p/hack/battlefield"
 alias xh="xhost +local:root;exit"
 #alias dc="docker commit $(docker container ls -q) "
@@ -492,3 +493,12 @@ alias watch="watch "
 export PATH="$PATH:/home/david/go/bin"
 alias fire="firefox"
 alias y="nvim"
+alias generate-password="(echo {A..Z};echo {a..z};echo {0..9})|tr -d ' '|tr -d '\n'|fold -w1|shuf -n15 -r|tr -d '\n'"
+
+
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux
+# fi
+
+alias a="ssh phone termux-vibrate -f"
+#alias feh="feh --keep-zoom-vp"

@@ -32,6 +32,8 @@ set smartcase
 :map <F4> :set cursorline!<return>
 :noremap ' `
 :inoremap kj x<BS><ESC>
+" map ctrl-backspace to delete the word in front of cursor
+":inoremap  <c-w>
 
 ":let searchbak=@/<CR>
 ":let @/=searchbak<CR>
