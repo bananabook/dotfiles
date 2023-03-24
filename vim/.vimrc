@@ -19,6 +19,7 @@ set foldmethod=manual
 set linebreak
 set ignorecase
 set smartcase
+"set t_te=
 
 ":map <F5> :w<return>:!tmux run-shell "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
 :map <F5> :w<return>:!make<return><return>
@@ -30,6 +31,14 @@ set smartcase
 :map <F2> :set number! relativenumber!<return>
 :map <F3> :set wrap!<return>
 :map <F4> :set cursorline!<return>
+:noremap <c-m> :q<cr>
+:noremap j gj
+:noremap gj j
+:noremap k gk
+:noremap gk k
+":noremap <c-s> :w<cr>
+":noremap <c-q> :q<cr>
+":noremap <c-z> <c-y>
 :noremap ' `
 :inoremap kj x<BS><ESC>
 " map ctrl-backspace to delete the word in front of cursor
@@ -43,11 +52,11 @@ set smartcase
 
 
 "" tab visualization
-:set list
+:set nolist
 ":set listchars=tab:\ \|     " > is shown at the beginning, - throughout
 :set listchars=tab:\|\     " > is shown at the beginning, - throughout
 :set listchars+=eol:\€     " > is shown at the beginning, - throughout
-":set listchars+=space:·     " > is shown at the beginning, - throughout
+:set listchars+=space:·     " > is shown at the beginning, - throughout
 
 
 execute "set <M-j>=\ej"
@@ -73,6 +82,8 @@ digraph :\ 129300 "🤔
 digraph :( 128577 "🙁
 digraph fs 9733 "★
 digraph es 9734 "☆
+digraph ?! 8253 "‽
+digraph !? 11800 "⸘
 
 "" hide status
 let s:hidden_all = 0

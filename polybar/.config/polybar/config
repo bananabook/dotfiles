@@ -106,7 +106,8 @@ format-underline = ${colors.5}
 
 [module/comon]
 type = custom/script
-exec = echo "$(amixer get Master|tail -n1|grep -Po '\[o.*\]$'|sed 's/\[off\]/─/g'|sed 's/\[on\]/│/g')$(amixer get Capture|tail -n1|grep -Po '\[o.*\]$'|sed 's/\[off\]/─/g'|sed 's/\[on\]/│/g')"
+exec = echo "$(amixer get Master|tail -n1|grep -Po '\[o.*\]$'|sed 's/\[off\]/l/g'|sed 's/\[on\]/L/g')$(amixer get Capture|tail -n1|grep -Po '\[o.*\]$'|sed 's/\[off\]/m/g'|sed 's/\[on\]/M/g')"
+;exec = echo "$(amixer get Master|tail -n1|grep -Po '\[o.*\]$'|sed 's/\[off\]/─/g'|sed 's/\[on\]/│/g')$(amixer get Capture|tail -n1|grep -Po '\[o.*\]$'|sed 's/\[off\]/─/g'|sed 's/\[on\]/│/g')"
 interval = 0.5
 label = %output%
 format-underline = ${colors.6}

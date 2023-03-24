@@ -460,6 +460,7 @@ tae(){
 	tmux attach "$@";exit
 }
 alias d="sudo docker"
+alias di="sudo docker inspect -f '{{.NetworkSettings.IPAddress}}'"
 alias dp="d ps -a --format 'table {{.ID}} {{.Image}}\t{{.Status}}\t{{.Names}}'"
 alias ok="setsid -f okular"
 lc () {
