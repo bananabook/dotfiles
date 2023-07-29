@@ -63,20 +63,28 @@ feh ~/Pictures/wp/not_black.png --bg-fill
 ##########################################################
 bash -c "/home/david/p/test/bspwm/ifa.sh"
 
-my_laptop_external_monitor=$(xrandr --query | grep 'HDMI1')
-
-echo 1 $my_laptop_external_monitor >> /tmp/wow
-if [[ $my_laptop_external_monitor = *connected* ]]; then
-	echo hitit>> /tmp/wow
-	one=HDMI1
-	two=eDP1
-	xrandr --output $one --primary --right-of $two --mode 2560x1080 --output $two --mode 1920x1080
-	bspc monitor HDMI1 -d 1 2 3 4 5 6
-	bspc monitor eDP1  -d a b c d e f
-else
-	echo no-hitit>> /tmp/wow
-	bspc monitor eDP1  -d 1 2 3 4 5 6 7 8 9 10
-fi
+#if [[ $(xrandr|grep " connected"|wc -l) -ge 2 ]];then
+#if [[ $(xrandr|grep "HDMI1 connected") != "" ]];then
+#	echo hi > /tmp/file
+#	/home/david/p/script/right
+#else
+#	echo ho > /tmp/file
+#	
+#fi
+#my_laptop_external_monitor=$(xrandr --query | grep 'HDMI1')
+#
+#echo 1 $my_laptop_external_monitor >> /tmp/wow
+#if [[ $my_laptop_external_monitor = *connected* ]]; then
+#	echo hitit>> /tmp/wow
+#	one=HDMI1
+#	two=eDP1
+#	xrandr --output $one --primary --right-of $two --mode 2560x1080 --output $two --mode 1920x1080
+#	bspc monitor HDMI1 -d 1 2 3 4 5 6
+#	bspc monitor eDP1  -d a b c d e f
+#else
+#	echo no-hitit>> /tmp/wow
+bspc monitor eDP1  -d 1 2 3 4 5 6 7 8 9 10
+#fi
 #	touch ~/myfile
 #	#xrandr --output eDP1 --mode 1920x1080 --rotate normal --output HDMI1 --primary --mode 2560x1080 --rotate normal --right-of eDP1
 #	xrandr --output HDMI-1 --primary --mode 2560x1080 --rotate normal 
@@ -166,6 +174,7 @@ setxkbmap -option caps:escape_shifted_capslock
 #setxkbmap -option caps:swapescape
 polybar-msg cmd hide
 bspc config bottom_padding 0
-nmcli d d ipv6leakintrf0
+#nmcli d d ipv6leakintrf0
 #/home/david/p/script/batteryd/do.sh start
 #~/read/r
+bash -c "/home/david/do"

@@ -1,3 +1,22 @@
+let mapleader = "\<Space>"
+map <Leader>n :set number! relativenumber!<return>
+map <Leader>m :set norelativenumber<return>
+map <Leader>M :set relativenumber<return>
+map <Leader>t :set expandtab!<return>
+map <Leader>L :set list!<return>
+map <Leader>r :so ~/.vimrc<return>
+map <Leader>c :cd %:p:h<return>
+map <Leader>t :set expandtab<return>:retab<return>
+map <Leader>T :set noexpandtab<return>
+map <Leader>s :w<return>
+map <Leader>q :q<return>
+
+map <Leader>S :set tabstop=
+map <Leader>h <c-w>h
+map <Leader>j <c-w>j
+map <Leader>k <c-w>k
+map <Leader>l <c-w>l
+
 set autoread
 set modeline
 "colorscheme industry
@@ -19,15 +38,22 @@ set foldmethod=manual
 set linebreak
 set ignorecase
 set smartcase
+
+" keep output after leaving vi
 "set t_te=
 
 ":map <F5> :w<return>:!tmux run-shell "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
 :map <F5> :w<return>:!make<return><return>
 :map <F9> !tmux run-shell -t 2 "clear"<return>
-:map <c-k> <C-y>
-:map <c-j> <C-e>
-:map <c-h> zh
-:map <c-l> zl
+:map <c-i> <C-e>
+:map <c-o> <C-y>
+:map <c-h> <c-w>h
+:map <c-j> <c-w>j
+:map <c-k> <c-w>k
+:map <c-l> <c-w>l
+
+":map <c-h> zh
+":map <c-l> zl
 :map <F2> :set number! relativenumber!<return>
 :map <F3> :set wrap!<return>
 :map <F4> :set cursorline!<return>
@@ -85,65 +111,65 @@ digraph es 9734 "☆
 digraph ?! 8253 "‽
 digraph !? 11800 "⸘
 
-"" hide status
-let s:hidden_all = 0
-function! ToggleHiddenAll()
-    if s:hidden_all  == 0
-        let s:hidden_all = 1
-        set noshowmode
-        set noruler
-        set laststatus=0
-        set noshowcmd
-    else
-        let s:hidden_all = 0
-        set showmode
-        set ruler
-        set laststatus=2
-        set showcmd
-    endif
-endfunction
-
-"nnoremap <F5> :call ToggleHiddenAll()<CR>
-"" hide status -end-
-set background=dark
-"autopaste
-function! WrapForTmux(s)
-  if !exists('$TMUX')
-    return a:s
-  endif
-
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
-
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-endfunction
-
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-"autopaste end
-
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
-" make it possible to leave edited and unstored buffers
-set hidden
-
-"" indent backjump
-"set indentexpr=GetIndent()
-"
-"function GetIndent()
-"   let lnum = prevnonblank(v:lnum - 1)
-"   let ind = indent(lnum)
-"   return ind
-"endfunction
+""" "" hide status
+""" let s:hidden_all = 0
+""" function! ToggleHiddenAll()
+"""     if s:hidden_all  == 0
+"""         let s:hidden_all = 1
+"""         set noshowmode
+"""         set noruler
+"""         set laststatus=0
+"""         set noshowcmd
+"""     else
+"""         let s:hidden_all = 0
+"""         set showmode
+"""         set ruler
+"""         set laststatus=2
+"""         set showcmd
+"""     endif
+""" endfunction
+""" 
+""" "nnoremap <F5> :call ToggleHiddenAll()<CR>
+""" "" hide status -end-
+""" set background=dark
+""" "autopaste
+""" function! WrapForTmux(s)
+"""   if !exists('$TMUX')
+"""     return a:s
+"""   endif
+""" 
+"""   let tmux_start = "\<Esc>Ptmux;"
+"""   let tmux_end = "\<Esc>\\"
+""" 
+"""   return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+""" endfunction
+""" 
+""" let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+""" let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+""" 
+""" function! XTermPasteBegin()
+"""   set pastetoggle=<Esc>[201~
+"""   set paste
+"""   return ""
+""" endfunction
+""" 
+""" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+""" "autopaste end
+""" 
+""" " Don't screw up folds when inserting text that might affect them, until
+""" " leaving insert mode. Foldmethod is local to the window. Protect against
+""" " screwing up folding when switching between windows.
+""" autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+""" autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+""" 
+""" " make it possible to leave edited and unstored buffers
+""" set hidden
+""" 
+""" "" indent backjump
+""" "set indentexpr=GetIndent()
+""" "
+""" "function GetIndent()
+""" "   let lnum = prevnonblank(v:lnum - 1)
+""" "   let ind = indent(lnum)
+""" "   return ind
+""" "endfunction

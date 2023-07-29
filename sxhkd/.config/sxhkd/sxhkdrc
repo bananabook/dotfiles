@@ -46,7 +46,8 @@ super + {_,alt +, shift +, ctrl +} numbersign
 
 # terminal emulator
 super + c
-	terminator -T Terminal -e tmux
+	kitty -T Δ tmux
+	#terminator -T Terminal -e tmux
 XF86Calculator
 	gnome-calculator
 
@@ -111,8 +112,8 @@ super + {_,shift +} F9
 super + {_,shift +} F10
 	bspc config swallow_first_click {false, true}
 
-super + shift + less
-	/home/david/p/script/a
+#super + shift + less
+#	/home/david/p/script/a
 super + Home
 	/home/david/p/script/phonevol raise
 super + End
@@ -128,19 +129,21 @@ super + End
 #	nmcli radio wifi off
 
 #	bspc rule -a \* -o state=floating rectangle=722x434+1173+602 && terminator
+#	bspc rule -a \* -o state=floating rectangle=722x434+1813+602 && terminator
 super + ctrl + c
-	bspc rule -a \* -o state=floating rectangle=722x434+1813+602 && terminator
+	kitty tmux attach
 
 super + ctrl + shift + c
 	bspc rule -a \* -o state=floating rectangle=722x434+33+602 && terminator
 
 super + {_,shift +, ctrl + alt +}c
 	{terminator, \
-	bspc rule -a \* -o state=floating && terminator, \
+	bspc rule -a \* -o state=floating && kitty -T Δ tmux, \
 	bspc rule -a \* -o state=pseudo_tiled && terminator}
 
 super + alt + c
-	terminator
+	kitty -T Terminal
+	#terminator
 #	firefox
 #	gnome-terminal
 
@@ -161,13 +164,18 @@ super + alt + c
 
 # Toggle polybar
 super + n
-	{bspc config -m primary bottom_padding 0;\
-	polybar-msg cmd hide,\
-	polybar-msg cmd show;\
-	bspc config -m primary bottom_padding 20}
+	{polybar-msg cmd show;\
+	bspc config -m primary bottom_padding 20,\
+	bspc config -m primary bottom_padding 0;\
+	polybar-msg cmd hide}
+	#{bspc config -m primary bottom_padding 0;\
+	#polybar-msg cmd hide,\
+	#polybar-msg cmd show;\
+	#bspc config -m primary bottom_padding 20}
 
 super + ctrl + shift + Tab
-	bspc node -m next --follow
+	bspc node -m next
+	#bspc node -m next --follow
 
 # Toggle cursor
 super + alt + y
@@ -211,19 +219,21 @@ super + comma
 # firefox
 super + f
 	firefox
+super + alt + f
+	firefox --private-window
 super + alt + t
 	thunderbird
 #bspc rule -a \* -o state=floating rectangle=722x1014+1173+22 && firefox
 super + ctrl + f
-	bspc rule -a \* -o state=floating rectangle=722x1014+1813+22 && firefox
-super + alt + f
-	firefox --private-window
+	nix-shell -p librewolf --command librewolf
+	#bspc rule -a \* -o state=floating rectangle=722x1014+1813+22 && firefox
 super + shift + f
-	bspc rule -a \* -o state=floating && firefox
+	firefox -P shadow
+	#bspc rule -a \* -o state=floating && firefox
 
 # program launcher
-super + ctrl + space
-	dmenu_run
+#super + ctrl + space
+#	dmenu_run
 
 super + shift + space
 	rofi -show window -m -1 -theme ~/.config/rofi/example.rasi
@@ -495,7 +505,7 @@ super + alt + shift + Delete
 # make sxhkd reload its configuration files:
 super + F1
 	terminator
-super + F6
+super + ctrl + F6
 	killall sxhkd;sxhkd &
 #	pkill -USR1 -x sxhkd
 

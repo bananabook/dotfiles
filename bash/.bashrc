@@ -161,6 +161,7 @@ export SYM=€
 export PS1="▒\w$SYM "
 alias ap="export PS1=\"▒\w$SYM \""
 alias rp="export PS1=\"▒$SYM \""
+# \e[0;31mhi\e[00m
 # Δ
 # $
 # \a make sound
@@ -339,7 +340,7 @@ alias ca='/opt/cisco/anyconnect/bin/vpn'
 alias cac='/opt/cisco/anyconnect/bin/vpn connect $VPN_RWTH'
 alias cad='/opt/cisco/anyconnect/bin/vpn disconnect'
 
-alias shut='shutdown now'
+alias shut='shutdown now;echo bye'
 alias lock='xdg-screensaver lock'
 
 alias ..='cd ..'
@@ -393,7 +394,7 @@ alias g=git
 matlab(){
 	#export _JAVA_AWT_WM_NONREPARENTING=1
 	#setsid -f /usr/local/MATLAB/R2020b/bin/matlab $*
-	setsid -f /usr/local/MATLAB/R2021b/bin/matlab
+	setsid -f /usr/local/MATLAB/R2022a/bin/matlab $*
 }
 export _JAVA_AWT_WM_NONREPARENTING=1
 #alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}'|tail -n1)"
@@ -401,7 +402,7 @@ alias myip="echo $(hostname -I|awk '{print $1}')"
 alias mysecip="hostname -I|cut -d ' ' -f 2"
 alias h=htop
 alias e="cd ~/p/test"
-alias x="while ! ping -i 2 1.1.1.1 ; do sleep 2 ; done"
+alias x="while ! ping -i 1 1.1.1.1 ; do sleep 1 ; done"
 alias n="nmcli"
 #alias kc="nmcli device disconnect wlp3s0 docker0"
 alias dfr="df / -h"
@@ -438,6 +439,7 @@ wttr(){
 }
 
 alias drr="sudo docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
+alias dx="sudo docker run -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix"
 alias dr="sudo docker run"
 alias hh="cd ~/p/hack"
 alias hb="cd ~/p/hack/battlefield"
@@ -483,7 +485,7 @@ alias aptf="apt list|grep -P "
 alias fd="fdfind"
 alias    connect="nmcli d c $WI;echo yes > ~/.autoconnect"
 alias disconnect="nmcli d d $WI;echo  no > ~/.autoconnect"
-alias  reconnect="nmcli d d $WI;nmcli d c $WI;echo  yes > ~/.autoconnect"
+alias  reconnect="nmcli d d $WI;nmcli d c $WI"
 alias sudo="sudo "
 alias rdl="readlink -e"
 alias tv="~/.tv"
@@ -503,3 +505,11 @@ alias generate-password="(echo {A..Z};echo {a..z};echo {0..9})|tr -d ' '|tr -d '
 
 alias a="ssh phone termux-vibrate -f"
 #alias feh="feh --keep-zoom-vp"
+alias dateb="date +'%F+%H-%M'"
+
+# nix
+. /home/david/.nix-profile/etc/profile.d/nix.sh
+alias libre="nix-shell -p librewolf"
+alias fj="firejail"
+alias setdis="export DISPLAY=:0"
+alias mind="find -maxdepth 1 \! -name '.'"
