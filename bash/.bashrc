@@ -224,8 +224,8 @@ umat(){
 
 alias u=umat
 
-alias busy='clear; ~/p/install/gen_busy/genact-v0.11.0-linux-x86_64'
-alias busyb='clear; ~/p/install/gen_busy/genact-v0.11.0-linux-x86_64 -m bootlog'
+alias busy='clear; ~/p/install/gen_busy/genact'
+alias busyb='clear; ~/p/install/gen_busy/genact -m bootlog'
 sshpry(){
 	if [ $# -eq 0 ]; then
 		sudo python3 ~/git/SSHPry2.0/sshpry2.py --list
