@@ -11,6 +11,12 @@ map <Leader>T :set noexpandtab<return>
 map <Leader>s :w<return>
 map <Leader>q :q<return>
 
+map <Leader>b :bn<return>
+map <Leader>p :bp<return>
+
+map <Leader>g :vs<return>
+map <Leader>v :sp<return>
+
 map <Leader>S :set tabstop=
 map <Leader>h <c-w>h
 map <Leader>j <c-w>j
@@ -18,6 +24,7 @@ map <Leader>k <c-w>k
 map <Leader>l <c-w>l
 
 set autoread
+set autochdir
 set modeline
 "colorscheme industry
 hi Normal guibg=NONE ctermbg=NONE
@@ -57,7 +64,6 @@ set smartcase
 :map <F2> :set number! relativenumber!<return>
 :map <F3> :set wrap!<return>
 :map <F4> :set cursorline!<return>
-:noremap <c-m> :q<cr>
 :noremap j gj
 :noremap gj j
 :noremap k gk
@@ -110,6 +116,9 @@ digraph fs 9733 "★
 digraph es 9734 "☆
 digraph ?! 8253 "‽
 digraph !? 11800 "⸘
+" tmux colour
+set background=dark
+
 
 """ "" hide status
 """ let s:hidden_all = 0
