@@ -1,18 +1,23 @@
 let mapleader = "\<Space>"
-map <Leader>n :set number! relativenumber!<return>
-map <Leader>m :set norelativenumber<return>
-map <Leader>M :set relativenumber<return>
-map <Leader>t :set expandtab!<return>
+map <Leader>m :windo set nonumber! norelativenumber!<return>
+map <Leader>M :windo set norelativenumber!<return>
+"map <Leader>t :set expandtab!<return>
 map <Leader>L :set list!<return>
 map <Leader>r :so ~/.vimrc<return>
-map <Leader>c :cd %:p:h<return>
+"map <Leader>c :cd %:p:h<return>
 map <Leader>t :set expandtab<return>:retab<return>
 map <Leader>T :set noexpandtab<return>
-map <Leader>s :w<return>
+map <Leader>w :w<return>
 map <Leader>q :q<return>
 
+map <Leader>, :set scrolloff=4<return>
+map <Leader>; :set scrolloff=0<return>
+
 map <Leader>b :bn<return>
-map <Leader>p :bp<return>
+map <Leader>n :bp<return>
+
+map <Leader>p :set paste<return>
+map <Leader>P :set nopaste<return>
 
 map <Leader>g :vs<return>
 map <Leader>v :sp<return>
@@ -22,6 +27,8 @@ map <Leader>h <c-w>h
 map <Leader>j <c-w>j
 map <Leader>k <c-w>k
 map <Leader>l <c-w>l
+
+:inoremap <c-g>{ {<CR><CR>}<Up>
 
 set autoread
 set autochdir
@@ -34,9 +41,9 @@ set numberwidth=2
 
 " set mouse=a
 
-"set tabstop=4
-set tabstop=2
-"set expandtab
+set tabstop=4
+"set tabstop=2
+set expandtab
 set smartindent
 "set autoindent
 "set shiftwidth=4
@@ -49,15 +56,19 @@ set smartcase
 " keep output after leaving vi
 "set t_te=
 
+:map J <c-e>
+:map K <c-y>
 ":map <F5> :w<return>:!tmux run-shell "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
 :map <F5> :w<return>:!make<return><return>
 :map <F9> !tmux run-shell -t 2 "clear"<return>
-:map <c-i> <C-e>
-:map <c-o> <C-y>
+":map <c-i> <C-e>
+":map <c-o> <C-y>
 :map <c-h> <c-w>h
 :map <c-j> <c-w>j
 :map <c-k> <c-w>k
 :map <c-l> <c-w>l
+:inoremap <Esc> x<BS><ESC>
+:inoremap <c-b> x<BS><ESC>
 
 ":map <c-h> zh
 ":map <c-l> zl
@@ -85,6 +96,8 @@ set smartcase
 
 "" tab visualization
 :set nolist
+" make it possible to leave edited and unstored buffers
+:set hidden
 ":set listchars=tab:\ \|     " > is shown at the beginning, - throughout
 :set listchars=tab:\|\     " > is shown at the beginning, - throughout
 :set listchars+=eol:\€     " > is shown at the beginning, - throughout
