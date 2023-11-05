@@ -91,13 +91,13 @@ super + alt + udiaeresis
 #NEW_HEIGHT=`expr $WIDTH * 9 / 16`; \
 #xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) $WIDTH $NEW_HEIGHT; \
 
-super + alt + dead_circumflex
+super + alt + Delete
 	amixer -q -D pulse sset Master toggle
 
-super + dead_circumflex
+super + Delete
 	sleep 0.4 && xdotool key F11
 
-#super + dead_circumflex
+#super + Delete
 #	terminator
 #super + XF86WakeUp
 #	terminator
@@ -322,6 +322,12 @@ super + shift + alt + {1-9,0}
 
 super + {_,shift + }{q,e}
 	bspc {desktop -f,node -d} {prev,next}.local
+super + ctrl + shift +{q,e}
+	bspc desktop -s {prev,next}.local
+#super + ctrl + shift +{1,2,3,4,5,6,7,8,9,0}
+#	bspc desktop -s '^{1,2,3,4,5,6,7,8,9,0}'.local
+super + ctrl + alt + shift +{q,e}
+	bspc desktop -s {prev,next}.local.occupied
 super + shift + alt + {q,e}
 	bspc node -d {prev,next}.local --follow
 
@@ -453,12 +459,12 @@ super + shift + ctrl + i
 #Brightness Control
 super + ctrl + {1,2,3,4,5,6,7,8,9,0}
 	xrandr --output eDP1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
-super + ctrl + dead_circumflex
+super + ctrl + Delete
 	xrandr --output eDP1 --brightness 0
 	#xbacklight -set {[1, 12, 23, 34, 45, 56, 67, 78, 89, 100] }
 super + ctrl + alt + {1,2,3,4,5,6,7,8,9,0}
 	xrandr --output HDMI1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
-super + ctrl + alt + dead_circumflex
+super + ctrl + alt + Delete
 	xrandr --output HDMI1 --brightness 0
 
 super + alt + {ctrl,shift} + less
@@ -493,13 +499,13 @@ super + x
 super + shift + x
 	amixer -D pulse sset Master 1%+
 
-super + Delete
+super + dead_circumflex
 	amixer -q -D pulse sset Master mute
-super + shift + Delete
+super + shift + dead_circumflex
 	amixer -q -D pulse sset Master unmute
-super + alt + Delete
+super + alt + dead_circumflex
 	amixer set Capture nocap
-super + alt + shift + Delete
+super + alt + shift + dead_circumflex
 	amixer set Capture cap
 
 # make sxhkd reload its configuration files:
