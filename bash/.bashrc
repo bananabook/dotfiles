@@ -396,6 +396,9 @@ matlab(){
 	#setsid -f /usr/local/MATLAB/R2020b/bin/matlab $*
 	setsid -f /usr/local/MATLAB/R2022a/bin/matlab $*
 }
+matlob(){
+	/usr/local/MATLAB/R2022a/bin/matlab -nodisplay -nosplash -nodesktop $*
+}
 export _JAVA_AWT_WM_NONREPARENTING=1
 #alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}'|tail -n1)"
 alias myip="echo $(hostname -I|awk '{print $1}')"
@@ -481,6 +484,7 @@ lc () {
 
 alias normount="sudo mount -o uid=1000,gid=1000 "
 alias et="vim ~/.tmux.conf"
+alias es="vim ~/.ssh/config"
 alias aptf="apt list|grep -P "
 alias fd="fdfind"
 alias    connect="nmcli d c $WI;echo yes > ~/.autoconnect"
@@ -511,5 +515,11 @@ alias dateb="date +'%F+%H-%M'"
 . /home/david/.nix-profile/etc/profile.d/nix.sh
 alias libre="nix-shell -p librewolf"
 alias fj="firejail"
-alias setdis="export DISPLAY=:0"
+alias sd="export DISPLAY=:0"
 alias mind="find -maxdepth 1 \! -name '.'"
+alias sphone="ssh phone -o hostname=localhost -p 8888"
+alias day="$EDITOR ~/p/days/days"
+alias dlr="realpath ./|xargs cd"
+alias rdlc="realpath ./|clip"
+alias repeat="while :;do !!;done"
+alias wac="while :;do cac;done"
