@@ -9,6 +9,8 @@ map <Leader>t :set expandtab<return>:retab<return>
 map <Leader>T :set noexpandtab<return>
 map <Leader>w :w<return>
 map <Leader>q :q<return>
+map <Leader>d :bd<return>
+map <Leader>f :f<return>
 
 map <Leader>, :set scrolloff=4<return>
 map <Leader>; :set scrolloff=0<return>
@@ -41,9 +43,9 @@ set numberwidth=2
 
 " set mouse=a
 
-set tabstop=4
-"set tabstop=2
-set expandtab
+"set tabstop=4
+set tabstop=2
+"set expandtab
 set smartindent
 "set autoindent
 "set shiftwidth=4
@@ -56,8 +58,9 @@ set smartcase
 " keep output after leaving vi
 "set t_te=
 
-:map J <c-e>
-:map K <c-y>
+:noremap J <c-e>
+:noremap gJ J
+:noremap K <c-y>
 ":map <F5> :w<return>:!tmux run-shell "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
 :map <F5> :w<return>:!make<return><return>
 :map <F9> !tmux run-shell -t 2 "clear"<return>
