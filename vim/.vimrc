@@ -33,7 +33,7 @@ map <Leader>l <c-w>l
 map <Leader>z :call writefile(getreg('"',1,1), "/tmp/vim.buffer")<return>
 map <Leader>Z :let @" = join(readfile("/tmp/vim.buffer"), "\n")<return>
 
-:inoremap <c-g>{ {<CR><CR>}<Up>
+:inoremap <c-g>{ {<CR>}<c-o>O
 
 set autoread
 set autochdir
