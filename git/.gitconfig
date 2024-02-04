@@ -1,5 +1,6 @@
 [alias]
-	s  = status
+	s  = status -s
+	st = status
 	sw = switch
 	a  = add
 	c  = commit
@@ -9,6 +10,7 @@
 	pl = pull
 	ps = push
 	l  = "log --oneline"
+	lg = "log --oneline --graph"
 	ll = log
 [user]
 	email = none
