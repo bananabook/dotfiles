@@ -64,6 +64,7 @@ set smartcase
 :noremap J <c-e>
 :noremap gJ J
 :noremap K <c-y>
+:map <F5> :!make
 ":map <F5> :w<return>:!tmux run-shell "make"<return>:!tmux run-shell -t 2 "clear"<return><return>
 :map <F5> :w<return>:!make<return><return>
 :map <F9> !tmux run-shell -t 2 "clear"<return>
