@@ -30,6 +30,8 @@ map <Leader>h <c-w>h
 map <Leader>j <c-w>j
 map <Leader>k <c-w>k
 map <Leader>l <c-w>l
+map <Leader>z :call writefile(getreg('"',1,1), "/tmp/vim.buffer")<return>
+map <Leader>Z :let @" = join(readfile("/tmp/vim.buffer"), "\n")<return>
 
 :inoremap <c-g>{ {<CR><CR>}<Up>
 
