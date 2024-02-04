@@ -10,6 +10,7 @@ map u navigate next
 map i navigate previous
 
 map b toggle_statusbar
+map z set recolor
 
 #map y set first-page-column 1
 #map x :set first-page-column 2
