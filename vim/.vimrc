@@ -2,7 +2,8 @@ let mapleader = "\<Space>"
 map <Leader>m :windo set nonumber! norelativenumber!<return>
 map <Leader>M :windo set norelativenumber!<return>
 "map <Leader>t :set expandtab!<return>
-map <Leader>L :set list!<return>
+map <Leader>K :set list!<return>
+map <Leader>L :ls<return>
 map <Leader>r :so ~/.vimrc<return>
 "map <Leader>c :cd %:p:h<return>
 map <Leader>t :set expandtab<return>:retab<return>
