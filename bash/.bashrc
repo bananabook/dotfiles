@@ -507,7 +507,10 @@ alias generate-password="(echo {A..Z};echo {a..z};echo {0..9})|tr -d ' '|tr -d '
 #   exec tmux
 # fi
 
-alias a="ssh phone termux-vibrate -f"
+#alias a="ssh phone termux-vibrate -f"
+a(){
+	$(pwd)/a
+}
 #alias feh="feh --keep-zoom-vp"
 alias dateb="date +'%F+%H-%M'"
 
@@ -526,3 +529,20 @@ alias wac="while :;do cac;done"
 alias ardu="/home/david/p/test/suid/m"
 alias m="make"
 alias j="julia"
+
+# ROS
+ros(){
+	source /opt/ros/noetic/setup.bash
+	if [[ -f ~/catkin_ws/devel/setup.bash ]];then
+		#echo devel/setup.bash found
+		source ~/catkin_ws/devel/setup.bash
+	#else
+		#echo devel/setup.bash not found
+	fi
+}
+ros
+eval $(dircolors ~/.dir_colors)
+trans(){
+	input=$(cat)
+	nix-shell -p translate-shell --run "trans -b -t en \"$input\"" 2>/dev/null|tr "\n" " " 
+}
