@@ -1,3 +1,4 @@
+set shellcmdflag=-ic
 let mapleader = "\<Space>"
 map <Leader>m :windo set nonumber! norelativenumber!<return>
 map <Leader>M :windo set norelativenumber!<return>
@@ -11,6 +12,7 @@ map <Leader>T :set noexpandtab<return>
 map <Leader>w :w<return>
 map <Leader>q :q<return>
 map <Leader>d :bd<return>
+map <Leader>D :r!date "+\%d.\%m.\%Y"<return>
 map <Leader>f :f<return>
 
 map <Leader>, :set scrolloff=4<return>
@@ -32,6 +34,12 @@ map <Leader>k <c-w>k
 map <Leader>l <c-w>l
 map <Leader>z :call writefile(getreg('"',1,1), "/tmp/vim.buffer")<return>
 map <Leader>Z :let @" = join(readfile("/tmp/vim.buffer"), "\n")<return>
+
+map <Leader>u i<return><ESC>
+map <Leader>U kgJx
+vnoremap <Leader>t @t
+"yo<c-r>"<esc>'<ma'>mbj0v$:!rev<return>0d$'av'bpjdd'b
+"vnoremap <Leader>t y'>aa<esc>'<ii<esc>
 
 :inoremap <c-g>{ {<CR>}<c-o>O
 
