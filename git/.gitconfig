@@ -2,6 +2,7 @@
 	s  = status -s
 	st = status
 	sw = switch
+	sh = stash
 	a  = add
 	c  = commit
 	co = checkout
