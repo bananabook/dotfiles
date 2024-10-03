@@ -8,11 +8,14 @@
 	co = checkout
 	b  = branch
 	d  = diff
+	dt = difftool -y
 	pl = pull
 	ps = push
 	l  = "log --oneline"
 	lg = "log --oneline --graph"
 	ll = log
+[diff]
+	tool=nvimdiff
 [user]
 	email = none
 	name = none
