@@ -179,8 +179,9 @@ super + ctrl + shift + Tab
 
 # Toggle cursor
 super + alt + y
-	{killall unclutter, \
-	unclutter -root -idle 1}
+	killall unclutter
+super + alt + less
+	if [[ ! $(pgrep unclutter) ]];then unclutter -root -idle 1 --start-hidden; fi
 
 # Nautilus
 #super + alt + y
@@ -206,7 +207,7 @@ super + less
 XF86AudioPlay
 	playerctl play-pause
 super + m
-	xmouseless
+	if [[ $(pgrep unclutter) ]];then A=1; killall unclutter; else A=0; fi;xmouseless;if [[ "$A" == 1 ]];then unclutter  -idle 1 --start-hidden ; fi
 
 super + comma
 	{playerctl pause; bspc node any.local.marked -g hidden=on, \
@@ -218,14 +219,15 @@ super + comma
 
 # firefox
 super + f
-	firefox
+	firefox -P simple
 super + alt + f
 	firefox --private-window
 super + alt + t
 	thunderbird
 #bspc rule -a \* -o state=floating rectangle=722x1014+1173+22 && firefox
 super + ctrl + f
-	nix-shell -p librewolf --command librewolf
+	firefox -P original
+	#nix-shell -p librewolf --command librewolf
 	#bspc rule -a \* -o state=floating rectangle=722x1014+1813+22 && firefox
 super + shift + f
 	firefox -P shadow
@@ -426,13 +428,13 @@ super + alt + shift + z
 
 # screenshot
 super + v
-	scrot -e 'mv $f ~/Pictures/screenshot/'
+	scrot -e 'mv $f ~/p/screenshot/'
 Print
-	scrot -e 'mv $f ~/Pictures/screenshot/'
+	scrot -e 'mv $f ~/p/screenshot/'
 
 
 super + alt + @v
-	scrot -s -e 'mv $f ~/Pictures/screenshot/'
+	scrot -s -e 'mv $f ~/p/screenshot/'
 
 super + ctrl + alt + @v
 	scrot -s -e 'mv $f ~/p/ocr/shot.png'; \
@@ -467,11 +469,11 @@ super + ctrl + alt + {1,2,3,4,5,6,7,8,9,0}
 super + ctrl + alt + Delete
 	xrandr --output HDMI1 --brightness 0
 
-super + alt + {ctrl,shift} + less
+super + {ctrl,shift} + less
 	xrandr --output eDP1 --brightness $(echo "$(xrandr --verbose |grep Brightness |grep -o '[0-9].*'){-,+}0.1" | bc)
 #	xrandr --output HDMI1 --brightness $(echo "$(xrandr --verbose |grep Brightness |grep -o '[0-9].*'){-,+}0.1" | bc)
 
-#xrandr --output eDP-1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
+#xrandr --output eDP1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
 
 #Volume Control
 XF86AudioLowerVolume
@@ -490,23 +492,25 @@ super + alt + {1,2,3,4,5,6,7,8,9,0}
 
 #super + ctrl + less
 super + y
-	amixer -D pulse sset Master 5%-
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 super + shift + y
-	amixer -D pulse sset Master 1%-
+	pactl set-sink-volume @DEFAULT_SINK@ -1%
 #super + shift + less
 super + x
-	amixer -D pulse sset Master 5%+
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 super + shift + x
-	amixer -D pulse sset Master 1%+
+	pactl set-sink-volume @DEFAULT_SINK@ +1%
 
 super + dead_circumflex
-	amixer -q -D pulse sset Master mute
+	pactl set-sink-mute @DEFAULT_SINK@ 1
 super + shift + dead_circumflex
-	amixer -q -D pulse sset Master unmute
+	pactl set-sink-mute @DEFAULT_SINK@ 0
 super + alt + dead_circumflex
-	amixer set Capture nocap
+	pactl set-source-mute @DEFAULT_SOURCE@ 1
+	#amixer set Capture nocap
 super + alt + shift + dead_circumflex
-	amixer set Capture cap
+	pactl set-source-mute @DEFAULT_SOURCE@ 0
+	#amixer set Capture cap
 
 # make sxhkd reload its configuration files:
 super + F1
@@ -516,7 +520,7 @@ super + ctrl + F6
 #	pkill -USR1 -x sxhkd
 
 super + Escape
-	xdg-screensaver lock;\
+	xlock -echokeys -echokey '*' -mode blank -background \#1d1f21 &\
 	playerctl pause
 
 #
