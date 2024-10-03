@@ -177,3 +177,7 @@ int("9D",16) is 157
     text-color: @normal-foreground;
 }
 
+element-text {
+ background-color: inherit;
+ text-color: inherit;
+}

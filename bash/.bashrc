@@ -158,7 +158,7 @@ export SYM=€
 #export PS1="\e[40;0;31m\w$SYM \e[40;0;38m"
 #alias ap="export PS1=\"\e[40;0;31m\w$SYM \e[40;0;38m\""
 #alias rp="export PS1=\"\e[40;0;31m$SYM \e[40;0;38m\""
-export PS1="▒\w$SYM "
+export PS1="\[\e[0;31m\]▒\w$SYM\[\e[0m\] "
 alias ap="export PS1=\"▒\w$SYM \""
 alias rp="export PS1=\"▒$SYM \""
 # \e[0;31mhi\e[00m
@@ -332,7 +332,7 @@ eclip(){
 
 alias tmuxa='tmux attach'
 
-alias cal='ncal -b'
+#alias cal='ncal -b'
 
 #cisco
 VPN_RWTH=vpn.rwth-aachen.de
@@ -401,8 +401,8 @@ matlob(){
 }
 export _JAVA_AWT_WM_NONREPARENTING=1
 #alias myip="echo $(ifconfig | grep broadcast | awk '{print $2}'|tail -n1)"
-alias myip="echo $(hostname -I|awk '{print $1}')"
-alias mysecip="hostname -I|cut -d ' ' -f 2"
+#alias myip="echo $(hostname -I|awk '{print $1}')"
+#alias mysecip="hostname -I|cut -d ' ' -f 2"
 alias h=htop
 alias e="cd ~/p/test"
 alias x="while ! ping -i 1 1.1.1.1 ; do sleep 1 ; done"
@@ -416,7 +416,7 @@ export PATH="$PATH:/home/david/p/script/"
 
 alias edp1="bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10"
 
-export WI=wlp3s0
+export WI=wlan0
 export LA=enx000ec6d6e2ed
 
 export IP_SPARK='10.134.57.91'
@@ -452,6 +452,7 @@ alias xh="xhost +local:root;exit"
 alias con="/home/david/p/test/connect_auto/do.sh start"
 alias bat="/home/david/p/script/batteryd/do.sh start"
 alias t="tmux"
+alias tt="tmux attach||tmux"
 te(){
 	tmux "$@" ;exit
 }
@@ -489,7 +490,7 @@ alias aptf="apt list|grep -P "
 alias fd="fdfind"
 alias    connect="nmcli d c $WI"
 alias disconnect="nmcli d d $WI"
-alias  reconnect="nmcli d d $WI;nmcli d c $WI"
+alias  reconnect="nmcli d d $WI;nmcli d connect $WI"
 alias sudo="sudo "
 alias rdl="readlink -e"
 alias tv="~/.tv"
@@ -507,7 +508,7 @@ alias generate-password="(echo {A..Z};echo {a..z};echo {0..9})|tr -d ' '|tr -d '
 #   exec tmux
 # fi
 
-#alias a="ssh phone termux-vibrate -f"
+alias vib="ssh phone termux-vibrate -f"
 a(){
 	$(pwd)/a
 }
@@ -515,7 +516,7 @@ a(){
 alias dateb="date +'%F+%H-%M'"
 
 # nix
-. /home/david/.nix-profile/etc/profile.d/nix.sh
+#. /home/david/.nix-profile/etc/profile.d/nix.sh
 alias libre="nix-shell -p librewolf"
 alias fj="firejail"
 alias sd="export DISPLAY=:0"
@@ -531,18 +532,22 @@ alias m="make"
 alias j="julia"
 
 # ROS
-ros(){
-	source /opt/ros/noetic/setup.bash
-	if [[ -f ~/catkin_ws/devel/setup.bash ]];then
-		#echo devel/setup.bash found
-		source ~/catkin_ws/devel/setup.bash
-	#else
-		#echo devel/setup.bash not found
-	fi
-}
-ros
-eval $(dircolors ~/.dir_colors)
+#ros(){
+#	source /opt/ros/noetic/setup.bash
+#	if [[ -f ~/catkin_ws/devel/setup.bash ]];then
+#		#echo devel/setup.bash found
+#		source ~/catkin_ws/devel/setup.bash
+#	#else
+#		#echo devel/setup.bash not found
+#	fi
+#}
+#ros
+#eval $(dircolors ~/.dir_colors)
 trans(){
 	input=$(cat)
 	nix-shell -p translate-shell --run "trans -b -t en \"$input\"" 2>/dev/null|tr "\n" " " 
 }
+alias vi=vim
+alias note="$EDITOR ~/p/notes"
+
+alias vs="code ."
