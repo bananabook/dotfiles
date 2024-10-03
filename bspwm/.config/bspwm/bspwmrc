@@ -1,12 +1,13 @@
 #! /bin/sh
 
+xset b off
 #setxkbmap de
 setxkbmap de
 xset r rate 200 25
 #xmodprobe /home/david/.Xmodmaprc
 #xmodmap .Xmodmaprc
 sxhkd &
-/home/david/p/interessant/bspwm/not_focus_new_unless_empty &
+#/home/david/p/interessant/bspwm/not_focus_new_unless_empty &
 
 xsetroot -cursor_name arrow
 
@@ -19,14 +20,14 @@ xsetroot -cursor_name arrow
 #killall keynav 
 #keynav &
 
-killall unclutter
-unclutter -root -idle 1 &
+#killall unclutter
+unclutter -root -idle 1 --start-hidden &
 #unclutter -root -idle 1 -keystroke &
 
 killall fusuma
-fusuma -c ~/.config/fusuma/config_bspwm.yml &
+/home/david/git/fusuma/exe/fusuma -c ~/.config/fusuma/config_bspwm.yml &
 
-gnome-screensaver &
+#gnome-screensaver &
 #gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 # no more blackscreen
@@ -51,7 +52,7 @@ $HOME/.config/polybar/launch.sh
 ###########################################################
 ## wallpapers
 
-feh ~/Pictures/wp/not_black.png --bg-fill
+feh ~/p/images/background/back.png --bg-fill
 #feh ~/Pictures/wp/cliff.jpg --bg-fill
 #feh ~/Pictures/wp/lake.jpg --bg-fill
 #feh ~/Pictures/wp/black.png --bg-fill
@@ -169,8 +170,10 @@ xinput set-prop $ID $IN_MID 1
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
 ###########################################################
-setxkbmap -option altwin:swap_lalt_lwin
-setxkbmap -option caps:escape_shifted_capslock
+setxkbmap -option caps:super
+#setxkbmap -option grp:shift_caps_toggle
+#setxkbmap -option altwin:swap_lalt_lwin
+#setxkbmap -option caps:escape_shifted_capslock
 #setxkbmap -option caps:swapescape
 polybar-msg cmd hide
 bspc config bottom_padding 0
