@@ -1,23 +1,27 @@
 [alias]
 	s  = status -s
+	so = status -s -uno
 	st = status
-	sw = switch
 	sh = stash
+	sl = stash list
+	sw = switch
 	a  = add
+	r  = restore
 	c  = commit
 	co = checkout
 	b  = branch
 	d  = diff
-	dt = difftool -y
 	pl = pull
 	ps = push
-	l  = "log --oneline"
-	lg = "log --oneline --graph"
+	pp = !"git pull && git push"
+	l  = "log --pretty=format:'%C(auto)%h %Cred%<( 16 )%ah %Cblue%<(7,trunc)%an%C(auto) %s%C(auto)%d'"
+	lb = "log --pretty=format:'%C(auto)%h %Cred%<( 16 )%ah %Cblue%<( 12 )%an%C(auto) %C(auto)%d\n%B'"
+	lg = "l --graph"
 	ll = log
-[diff]
-	tool=nvimdiff
 [user]
 	email = none
 	name = none
-[credential]
-	helper = store
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
