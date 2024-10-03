@@ -11,6 +11,7 @@
 	co = checkout
 	b  = branch
 	d  = diff
+	ds = "diff --staged"
 	pl = pull
 	ps = push
 	pp = !"git pull && git push"
