@@ -1,5 +1,40 @@
-set shellcmdflag=-ic
+" resize mode
+
+" Define a function to leave resize mode
+function! LeaveResizeMode()
+    unmap <buffer> H
+    unmap <buffer> J
+    unmap <buffer> K
+    unmap <buffer> L
+    unmap <buffer> h
+    unmap <buffer> j
+    unmap <buffer> k
+    unmap <buffer> l
+    unmap <buffer> q
+    echo "Exited Resize Mode."
+endfunction
+" Define a function to enter resize mode
+function! EnterResizeMode()
+    nnoremap <silent> <buffer> H :vertical resize -2<CR>
+    nnoremap <silent> <buffer> J :resize +2<CR>
+    nnoremap <silent> <buffer> K :resize -2<CR>
+    nnoremap <silent> <buffer> L :vertical resize +2<CR>
+    nnoremap <silent> <buffer> h <c-w>h
+    nnoremap <silent> <buffer> j <c-w>j
+    nnoremap <silent> <buffer> k <c-w>k
+    nnoremap <silent> <buffer> l <c-w>l
+    nnoremap <silent> <buffer> q :call LeaveResizeMode()<CR>
+    echo "Entered Resize Mode. Use hjkl to resize, Esc to exit."
+endfunction
+
+
+" Create a command to enter resize mode
+command! ResizeMode call EnterResizeMode()
+
+
+
 let mapleader = "\<Space>"
+map <Leader>R :ResizeMode<CR>
 map <Leader>m :windo set nonumber! norelativenumber!<return>
 map <Leader>M :windo set norelativenumber!<return>
 "map <Leader>t :set expandtab!<return>
