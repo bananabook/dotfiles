@@ -175,7 +175,10 @@ alias rce='ranger ~/p/rwth/compiler/Exercises --choosedir=$HOME/.rangerdir; LAST
 alias rr='ranger ~/p/rwth/rt/moodle/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rrr='ranger /home/david/p/rwth/rt/klausur --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias rd='ranger ~/Downloads/ --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias o="setsid -f xdg-open"
+#alias o="setsid -f xdg-open"
+o(){
+  setsid -f xdg-open "$*" >/dev/null 2>&1
+}
 alias z="setsid -f zathura"
 alias rl="source ~/.bashrc"
 alias eb="vim + ~/.bashrc"
@@ -204,7 +207,7 @@ umatdefault(){
 }
 
 umat(){ 
-	re='^[0-9]+$'
+	re='^([0-9])|w+$'
 	if [ $# -eq 0 ]; then
 		umatdefault
 	elif [[ $1 =~ $re ]];then
@@ -216,6 +219,9 @@ umat(){
 		fi
 		if [ $1 -eq 1 ]; then
 			umatdefault -c 'white' -g 'red'
+		fi
+		if [ $1 == "w" ]; then
+			uumat -c 'white' -g 'black'
 		fi
 	else
 		umatdefault $*
@@ -349,7 +355,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+#alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 alias update='sudo apt update; sudo apt upgrade -y'
 
@@ -486,6 +492,8 @@ lc () {
 alias normount="sudo mount -o uid=1000,gid=1000 "
 alias et="vim ~/.tmux.conf"
 alias es="vim ~/.ssh/config"
+alias en="vim ~/.config/nvim/init.vim"
+alias eg="vim ~/.gitconfig"
 alias aptf="apt list|grep -P "
 alias fd="fdfind"
 alias    connect="nmcli d c $WI"
@@ -529,6 +537,7 @@ alias repeat="while :;do !!;done"
 alias wac="while :;do cac;done"
 alias ardu="/home/david/p/test/suid/m"
 alias m="make"
+alias ma="make all"
 alias j="julia"
 
 # ROS
@@ -551,3 +560,7 @@ alias vi=vim
 alias note="$EDITOR ~/p/notes"
 
 alias vs="code ."
+alias em="$EDITOR Makefile"
+alias gs="git s"
+set -o emacs
+alias tt="ta||t"
