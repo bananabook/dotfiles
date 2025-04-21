@@ -15,6 +15,10 @@ xsetroot -cursor_name arrow
 if [[ $(xrandr|grep HDMI1) ]];then
 	xrandr --output HDMI1 --above eDP1
 	xrandr --output HDMI1 --primary --auto
+	bspc monitor HDMI1  -d 1 2 3 4 5 6 7 8 9 10
+	bspc monitor eDP1  -d s1 s2 s3
+else
+	bspc monitor eDP1  -d 1 2 3 4 5 6 7 8 9 10
 fi
 
 #sh /home/david/p/scripts/batter-status.sh &
@@ -90,7 +94,6 @@ bash -c "/home/david/p/test/bspwm/ifa.sh"
 #	bspc monitor eDP1  -d a b c d e f
 #else
 #	echo no-hitit>> /tmp/wow
-bspc monitor eDP1  -d 1 2 3 4 5 6 7 8 9 10
 #fi
 #	touch ~/myfile
 #	#xrandr --output eDP1 --mode 1920x1080 --rotate normal --output HDMI1 --primary --mode 2560x1080 --rotate normal --right-of eDP1
