@@ -33,6 +33,8 @@ command! ResizeMode call EnterResizeMode()
 
 
 
+syntax on
+set nofixeol
 let mapleader = "\<Space>"
 map <Leader>R :ResizeMode<CR>
 map <Leader>m :windo set nonumber! norelativenumber!<return>
