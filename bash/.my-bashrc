@@ -51,15 +51,13 @@ alias clip='xclip -selection clipboard -r'
 alias clipo='xclip -selection clipboard -o'
 
 vl(){
-	echo > ~/p/message
+	echo -n > ~/p/message
 	el
 }
 el(){
 	$EDITOR ~/p/message
-	if [ -f ~/p/message ]
-		then
-			cat ~/p/message|clip
-			#rm ~/p/message
+	if [ -f ~/p/message ];then
+		clip < ~/p/message
 	fi
 }
 
