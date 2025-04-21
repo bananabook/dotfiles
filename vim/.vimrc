@@ -87,7 +87,7 @@ hi Normal guibg=NONE ctermbg=NONE
 set number relativenumber
 set numberwidth=2
 
-" set mouse=a
+set mouse=
 
 "set tabstop=4
 set tabstop=2
@@ -165,6 +165,7 @@ nnoremap <M-k> gk
 ":set shiftwidth=3
 """""""""""""""""""""
 digraph bp 8226 "•
+digraph <3 10084 "❤️
 digraph :) 128516 "😄
 digraph ;) 128521 "😉
 digraph :D 128517 "😅
@@ -175,6 +176,8 @@ digraph :o 128559 "😯
 digraph 0: 128519 "😇
 digraph :\ 129300 "🤔
 digraph :( 128577 "🙁
+digraph :} 128524 "😌
+digraph :> 128514 "😂
 digraph fs 9733 "★
 digraph es 9734 "☆
 digraph ?! 8253 "‽
