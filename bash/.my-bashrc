@@ -98,7 +98,7 @@ cl(){
 
 
 # shortcuts
-alias g=git
+alias g="git"
 alias v="vim"
 alias p="python3"
 alias rl="source ~/.bashrc"
@@ -112,6 +112,9 @@ alias fj="firejail"
 alias m="make"
 alias ma="make all"
 alias rdl="readlink -e"
+alias pm="pacman"
+alias l="eza"
+alias la="eza -a"
 
 o(){
   setsid -f xdg-open "$*" >/dev/null 2>&1
