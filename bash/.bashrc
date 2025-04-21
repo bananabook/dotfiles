@@ -64,12 +64,6 @@ el(){
 }
 
 
-# tools
-alias fing5='sudo docker run --rm -it --net=host --name dockerFing apigem/docker-fing'
-PROMPT_DIRTRIM=3
-alias generate-password="(echo {A..Z};echo {a..z};echo {0..9})|tr -d ' '|tr -d '\n'|fold -w1|shuf -n15 -r|tr -d '\n'"
-
-
 # edits
 alias  eb="$EDITOR + ~/.dotfiles/bash/.bashrc"
 alias  ev="$EDITOR ~/.vimrc"
