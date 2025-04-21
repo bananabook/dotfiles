@@ -65,19 +65,12 @@ el(){
 
 
 # edits
-alias  eb="$EDITOR + ~/.dotfiles/bash/.bashrc"
-alias  ev="$EDITOR ~/.vimrc"
-alias ebs='$EDITOR ~/.config/bspwm/bspwmrc'
-alias esx='$EDITOR ~/.config/sxhkd/sxhkdrc'
-alias ele='$EDITOR ~/.config/lemonbar/lemonbar.sh'
-alias ero='$EDITOR ~/.config/rofi/config.rasi'
-alias epc='$EDITOR ~/.config/polybar/config'
-alias epl='$EDITOR ~/.config/polybar/launch.sh'
-alias eza='$EDITOR ~/.config/zathura/zathurarc'
-alias  et="$EDITOR ~/.tmux.conf"
-alias  es="$EDITOR ~/.ssh/config"
-alias  en="$EDITOR ~/.config/nvim/init.vim"
-alias  eg="$EDITOR ~/.gitconfig"
+e(){
+	if [[ "$#" -eq 0 ]];then
+		cd ~/p/test
+	fi
+	co $@
+}
 
 alias note="$EDITOR ~/p/notes"
 alias todo='$EDITOR ~/p/sec/todo'
@@ -91,7 +84,6 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-alias e="cd ~/p/test"
 alias hh="cd ~/p/hack"
 
 alias i='cd $(lf -print-last-dir)'
