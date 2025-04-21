@@ -10,8 +10,8 @@ add_to_path() {
         *) PATH="$PATH:$1" ;;
     esac
 }
-add_to_path "/home/david/go/bin"
-add_to_path "/home/david/p/script/"
+add_to_path "~/go/bin"
+add_to_path "~/p/script/"
 
 
 # network
@@ -28,7 +28,7 @@ alias d="sudo docker"
 alias drr="sudo docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
 alias dx="sudo docker run -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix"
 alias dr="sudo docker run"
-alias xh="xhost +local:root;exit"
+alias xh="xhost +local:root"
 
 
 # tmux
