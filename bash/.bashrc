@@ -8,9 +8,10 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+#- broke ctrl-o
+#- # don't put duplicate lines or lines starting with space in the history.
+#- # See bash(1) for more options
+#- HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -149,10 +150,11 @@ alias install="sudo apt install"
 alias remove="sudo apt remove"
 
 alias clip='xclip -selection clipboard -r'
+alias clipo='xclip -selection clipboard -o'
 # export CDPATH=.:/mnt/c/00RWTH/:/mnt/c/00ICH/COMP/:/mnt/c/00ICH/COMP/linux
 #export CDPATH=.:/:~:/home/david/Documents/
 #export CDPATH=/home/david/p/rwth
-export EDITOR=vim
+export EDITOR=nvim
 
 export SYM=€
 #export PS1="\e[40;0;31m\w$SYM \e[40;0;38m"
@@ -181,9 +183,9 @@ o(){
 }
 alias z="setsid -f zathura"
 alias rl="source ~/.bashrc"
-alias eb="vim + ~/.bashrc"
-alias emb="vim ~/.my_bashrc"
-alias ev="vim ~/.vimrc"
+alias eb="$EDITOR + ~/.bashrc"
+alias emb="$EDITOR ~/.my_bashrc"
+alias ev="$EDITOR ~/.vimrc"
 
 alias v="vim"
 alias p="python3"
@@ -276,14 +278,14 @@ __conda_setup="$('/home/david/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/n
 }
 
 # bspwm
-alias ebs='vim ~/.config/bspwm/bspwmrc'
-alias esx='vim ~/.config/sxhkd/sxhkdrc'
-alias ele='vim ~/.config/lemonbar/lemonbar.sh'
-alias ero='vim ~/.config/rofi/config.rasi'
-alias epc='vim ~/.config/polybar/config'
-alias epl='vim ~/.config/polybar/launch.sh'
-alias eza='vim ~/.config/zathura/zathurarc'
-alias egi='vim ~/.gitconfig'
+alias ebs='$EDITOR ~/.config/bspwm/bspwmrc'
+alias esx='$EDITOR ~/.config/sxhkd/sxhkdrc'
+alias ele='$EDITOR ~/.config/lemonbar/lemonbar.sh'
+alias ero='$EDITOR ~/.config/rofi/config.rasi'
+alias epc='$EDITOR ~/.config/polybar/config'
+alias epl='$EDITOR ~/.config/polybar/launch.sh'
+alias eza='$EDITOR ~/.config/zathura/zathurarc'
+alias egi='$EDITOR ~/.gitconfig'
 c(){
 	if [[ "$*" == "" ]];then
 		cd
@@ -305,8 +307,8 @@ alias el=eclip
 vclip(){
 	#rm ~/p/message -f
 	echo > ~/p/message
-	#vim -c 'startinsert' ~/p/message
-	vim ~/p/message
+	#$EDITOR -c 'startinsert' ~/p/message
+	$EDITOR ~/p/message
 	if [ -f ~/p/message ]
 		then
 			cat ~/p/message|clip
@@ -359,8 +361,8 @@ alias ......='cd ../../../../..'
 
 alias update='sudo apt update; sudo apt upgrade -y'
 
-#alias t='vim + ~/p/t'
-alias todo='vim ~/p/todo'
+#alias t='$EDITOR + ~/p/t'
+alias todo='$EDITOR ~/p/sec/todo'
 alias f=fg
 
 # gurobi
@@ -490,13 +492,13 @@ lc () {
 }
 
 alias normount="sudo mount -o uid=1000,gid=1000 "
-alias et="vim ~/.tmux.conf"
-alias es="vim ~/.ssh/config"
-alias en="vim ~/.config/nvim/init.vim"
-alias eg="vim ~/.gitconfig"
+alias et="$EDITOR ~/.tmux.conf"
+alias es="$EDITOR ~/.ssh/config"
+alias en="$EDITOR ~/.config/nvim/init.vim"
+alias eg="$EDITOR ~/.gitconfig"
 alias aptf="apt list|grep -P "
-alias fd="fdfind"
-alias    connect="nmcli d c $WI"
+#alias fd="fdfind"
+alias    connect="nmcli d connect $WI"
 alias disconnect="nmcli d d $WI"
 alias  reconnect="nmcli d d $WI;nmcli d connect $WI"
 alias sudo="sudo "
@@ -530,7 +532,7 @@ alias fj="firejail"
 alias sd="export DISPLAY=:0"
 alias mind="find -maxdepth 1 \! -name '.'"
 alias sphone="ssh phone -o hostname=localhost -p 8888"
-alias day="vim /home/david/p/days/2024/days +"
+alias day="$EDITOR /home/david/p/days/2025/days +"
 alias dlr="realpath ./|xargs cd"
 alias rdlc="realpath ./|clip"
 alias repeat="while :;do !!;done"
@@ -564,3 +566,4 @@ alias em="$EDITOR Makefile"
 alias gs="git s"
 set -o emacs
 alias tt="ta||t"
+alias pi=phoneip
