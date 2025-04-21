@@ -8,8 +8,14 @@ xset r rate 200 25
 #xmodmap .Xmodmaprc
 sxhkd &
 #/home/david/p/interessant/bspwm/not_focus_new_unless_empty &
+xrdb -merge ~/.Xresources
 
 xsetroot -cursor_name arrow
+
+if [[ $(xrandr|grep HDMI1) ]];then
+	xrandr --output HDMI1 --above eDP1
+	xrandr --output HDMI1 --primary --auto
+fi
 
 #sh /home/david/p/scripts/batter-status.sh &
 
