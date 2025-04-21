@@ -10,8 +10,8 @@ add_to_path() {
         *) PATH="$PATH:$1" ;;
     esac
 }
-add_to_path "~/go/bin"
-add_to_path "~/p/script/"
+add_to_path "$HOME/go/bin"
+add_to_path "$HOME/p/script/"
 
 
 # network
