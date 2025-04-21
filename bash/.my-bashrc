@@ -72,7 +72,7 @@ e(){
 
 alias note="$EDITOR ~/p/notes"
 alias todo='$EDITOR ~/p/sec/todo'
-alias day="$EDITOR /home/david/p/days/2025/days +"
+alias  day="$EDITOR ~/p/days/2025/days +"
 
 
 # navigation
