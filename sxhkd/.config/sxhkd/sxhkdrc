@@ -7,6 +7,8 @@
 # move/resize
 #
 
+super + alt + t
+	scrcpy
 super + Return
 	bspc config -m focused borderless_monocle   false
 super + shift + Return
@@ -95,6 +97,8 @@ super + alt + Delete
 	amixer -q -D pulse sset Master toggle
 
 super + Delete
+	shutdown now
+super + Home
 	sleep 0.4 && xdotool key F11
 
 #super + Delete
@@ -470,10 +474,7 @@ super + ctrl + alt + Delete
 	xrandr --output HDMI1 --brightness 0
 
 super + {ctrl,shift} + less
-	xrandr --output eDP1 --brightness $(echo "$(xrandr --verbose |grep Brightness |grep -o '[0-9].*'){-,+}0.1" | bc)
-#	xrandr --output HDMI1 --brightness $(echo "$(xrandr --verbose |grep Brightness |grep -o '[0-9].*'){-,+}0.1" | bc)
-
-#xrandr --output eDP1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
+	xrandr --output eDP1 --brightness $(echo $(xrandr --verbose|rg -i -U "eDP1.*(\n\s.*)+"|rg "brightness: (.*)" -i -r '$1' -o) {-,+} 0.1|bc)
 
 #Volume Control
 XF86AudioLowerVolume
@@ -522,6 +523,9 @@ super + ctrl + F6
 super + Escape
 	xlock -echokeys -echokey '*' -mode blank -background \#1d1f21 &\
 	playerctl pause
+
+super + alt +Escape
+	dm-tool switch-to-greeter
 
 #
 # bspwm hotkeys
