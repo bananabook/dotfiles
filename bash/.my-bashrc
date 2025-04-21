@@ -115,9 +115,11 @@ alias fj="firejail"
 alias m="make"
 alias ma="make all"
 alias rdl="readlink -e"
-alias pm="pacman"
+alias pm="pacman --noconfirm"
 alias l="eza"
 alias la="eza -a"
+alias eb="e b"
+alias cal="cal -m"
 
 o(){
   setsid -f xdg-open "$*" >/dev/null 2>&1
