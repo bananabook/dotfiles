@@ -1,9 +1,17 @@
 # setting
 export EDITOR=nvim
 export PS1="\[\e[0;31m\]▒\w€\[\e[0m\] "
-export PATH="$PATH:/home/david/go/bin"
-export PATH="$PATH:/home/david/p/script/"
 set -o emacs
+
+## function to avoid duplicates
+add_to_path() {
+    case ":$PATH:" in
+        *":$1:"*) ;;  # Already in PATH, do nothing
+        *) PATH="$PATH:$1" ;;
+    esac
+}
+add_to_path "/home/david/go/bin"
+add_to_path "/home/david/p/script/"
 
 
 # network
@@ -13,11 +21,6 @@ alias disconnect="nmcli d d $WI"
 alias  reconnect="nmcli d d $WI;nmcli d connect $WI"
 
 alias x="bash -c 'while ! ping -i 1 1.1.1.1 ; do sleep 1 ; done'"
-
-
-# recurse
-alias sudo="sudo "
-alias watch="watch "
 
 
 # docker
@@ -123,6 +126,11 @@ cmkdir(){
 	mkdir $1
 	cd $_
 }
+
+
+# recurse
+alias watch="watch "
+alias sudo="/usr/bin/sudo "
 
 
 # unsorted
