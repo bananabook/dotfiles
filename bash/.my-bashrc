@@ -120,25 +120,25 @@ c(){
 
 
 # shortcuts
-alias g="git"
-alias v="vim"
-alias p="python3"
-alias rl="source ~/.bashrc"
-alias h=htop
+alias    g="git"
+alias    v="vim"
+alias    p="python3"
+alias   rl="source ~/.bashrc"
+alias    h="htop"
 alias shut='shutdown now;echo bye'
-alias vs="code ."
+alias   vs="code ."
 alias fire="firefox"
-alias y="nvim"
-alias gs="git s"
-alias fj="firejail"
-alias m="make"
-alias ma="make all"
-alias rdl="readlink -e"
-alias pm="pacman --noconfirm"
-alias l="eza"
-alias la="eza -a"
-alias eb="e b"
-alias cal="cal -m"
+alias    y="nvim"
+alias   gs="git s"
+alias   fj="firejail"
+alias    m="make"
+alias   ma="make all"
+alias  rdl="readlink -e"
+alias   pm="pacman --noconfirm"
+alias    l="eza"
+alias   la="eza -a"
+alias   eb="e b"
+alias  cal="cal -m"
 
 o(){
   setsid -f xdg-open "$*" >/dev/null 2>&1
