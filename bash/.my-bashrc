@@ -115,14 +115,9 @@ alias hh="cd ~/p/hack"
 
 alias i='cd $(lf -print-last-dir)'
 
-cl(){
-	if [[ "$*" == "" ]];then
-		cd
-		ls
-	else
-		cd "$*"
-		ls
-	fi
+c(){
+	cd $@
+	ls
 }
 
 
