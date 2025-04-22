@@ -70,7 +70,33 @@ e(){
 	if [[ "$#" -eq 0 ]];then
 		cd ~/p/test
 	fi
-	co $@
+
+	case $1 in
+	b|ba|bash)
+		$EDITOR ~/.my-bashrc +;;
+	v)
+		$EDITOR ~/.vimrc;;
+	bs|bspwm)
+		$EDITOR ~/.config/bspwm/bspwmrc;;
+	sx|sxhkd)
+		$EDITOR ~/.config/sxhkd/sxhkdrc;;
+	r|ra|rasi)
+		$EDITOR ~/.config/rofi/config.rasi;;
+	pc)
+		$EDITOR ~/.config/polybar/config;;
+	pl)
+		$EDITOR ~/.config/polybar/launch.sh;;
+	z|za)
+		$EDITOR ~/.config/zathura/zathurarc;;
+	t|tmux)
+		$EDITOR ~/.tmux.conf;;
+	s|ssh)
+		$EDITOR ~/.ssh/config;;
+	n|nvim)
+		$EDITOR ~/.config/nvim/init.vim;;
+	g|git)
+		$EDITOR ~/.gitconfig;;
+	esac
 }
 
 alias note="$EDITOR ~/p/notes"
