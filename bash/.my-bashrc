@@ -1,8 +1,6 @@
 # setting
 export EDITOR=nvim
 export PS1="\[\e[0;32m\]▒\wΣ\[\e[0m\] "
-export PATH="$PATH:/home/david/go/bin"
-export PATH="$PATH:/home/david/p/script/"
 set -o emacs
 
 ## function to avoid duplicates
@@ -66,23 +64,42 @@ el(){
 
 
 # edits
-alias  eb="$EDITOR + ~/.dotfiles/bash/.bashrc"
-alias  ev="$EDITOR ~/.vimrc"
-alias ebs='$EDITOR ~/.config/bspwm/bspwmrc'
-alias esx='$EDITOR ~/.config/sxhkd/sxhkdrc'
-alias ele='$EDITOR ~/.config/lemonbar/lemonbar.sh'
-alias ero='$EDITOR ~/.config/rofi/config.rasi'
-alias epc='$EDITOR ~/.config/polybar/config'
-alias epl='$EDITOR ~/.config/polybar/launch.sh'
-alias eza='$EDITOR ~/.config/zathura/zathurarc'
-alias  et="$EDITOR ~/.tmux.conf"
-alias  es="$EDITOR ~/.ssh/config"
-alias  en="$EDITOR ~/.config/nvim/init.vim"
-alias  eg="$EDITOR ~/.gitconfig"
+e(){
+	if [[ "$#" -eq 0 ]];then
+		cd ~/p/test
+	fi
+
+	case $1 in
+	b|ba|bash)
+		$EDITOR ~/.my-bashrc +;;
+	v)
+		$EDITOR ~/.vimrc;;
+	bs|bspwm)
+		$EDITOR ~/.config/bspwm/bspwmrc;;
+	sx|sxhkd)
+		$EDITOR ~/.config/sxhkd/sxhkdrc;;
+	r|ra|rasi)
+		$EDITOR ~/.config/rofi/config.rasi;;
+	pc)
+		$EDITOR ~/.config/polybar/config;;
+	pl)
+		$EDITOR ~/.config/polybar/launch.sh;;
+	z|za)
+		$EDITOR ~/.config/zathura/zathurarc;;
+	t|tmux)
+		$EDITOR ~/.tmux.conf;;
+	s|ssh)
+		$EDITOR ~/.ssh/config;;
+	n|nvim)
+		$EDITOR ~/.config/nvim/init.vim;;
+	g|git)
+		$EDITOR ~/.gitconfig;;
+	esac
+}
 
 alias note="$EDITOR ~/p/notes"
 alias todo='$EDITOR ~/p/sec/todo'
-alias day="$EDITOR /home/david/p/days/2025/days +"
+alias  day="$EDITOR ~/p/days/2025/days +"
 
 
 # navigation
@@ -92,30 +109,24 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-alias e="cd ~/p/test"
 alias hh="cd ~/p/hack"
 
 alias i='cd $(lf -print-last-dir)'
 
-cl(){
-	if [[ "$*" == "" ]];then
-		cd
-		ls
-	else
-		cd "$*"
-		ls
-	fi
+c(){
+	cd $@
+	ls
 }
 
 
 # shortcuts
-alias g=git
-alias v="vim"
-alias p="python3"
-alias rl="source ~/.bashrc"
-alias h=htop
+alias    g="git"
+alias    v="vim"
+alias    p="python3"
+alias   rl="source ~/.bashrc"
+alias    h="htop"
 alias shut='shutdown now;echo bye'
-alias vs="code ."
+alias   vs="code ."
 alias fire="firefox"
 alias    y="nvim"
 alias   gs="git s"
@@ -136,6 +147,11 @@ cmkdir(){
 	mkdir $1
 	cd $_
 }
+
+
+# recurse
+alias watch="watch "
+alias sudo="/usr/bin/sudo "
 
 
 # unsorted
