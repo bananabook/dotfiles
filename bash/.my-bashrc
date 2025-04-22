@@ -4,14 +4,12 @@ export PS1="\[\e[0;31m\]▒\w€\[\e[0m\] "
 set -o emacs
 
 ## function to avoid duplicates
-add_to_path() {
+for dir in "$HOME/go/bin" "$HOME/p/script/"; do
     case ":$PATH:" in
-        *":$1:"*) ;;  # Already in PATH, do nothing
-        *) PATH="$PATH:$1" ;;
+        *":$dir:"*) ;;  # Already in PATH, do nothing
+        *) PATH="$PATH:$dir" ;;
     esac
-}
-add_to_path "$HOME/go/bin"
-add_to_path "$HOME/p/script/"
+done
 
 
 # network
