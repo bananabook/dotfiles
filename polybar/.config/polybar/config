@@ -19,21 +19,21 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 ;background = #aa1D1F21
-background = #1D1F21
+background = #1d1f21
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #C5C8C6
+foreground = #c5c8c6
 foreground-alt = #555
-1 = #282A2E
-2 = #A54242
-3 = #8C9440
-4 = #DE935F
-5 = #5F819D
-6 = #85678F
-7 = #5E8D87
+1 = #282a2e
+2 = #a54242
+3 = #8c9440
+4 = #de935f
+5 = #5f819d
+6 = #85678f
+7 = #5e8d87
 8 = #707880
 
-primary = #8C9440
+primary = #8c9440
 secondary = #e60053
 alert = #bd2c40
 
