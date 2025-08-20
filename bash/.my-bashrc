@@ -1,6 +1,6 @@
 # setting
 export EDITOR=nvim
-export PS1="\[\e[0;32m\]▒\wΣ\[\e[0m\] "
+export PS1="\[\e[0;32m\]p\wΣ\[\e[0m\] "
 set -o emacs
 
 ## function to avoid duplicates
@@ -48,8 +48,8 @@ tae(){
 
 
 # clip
-alias clip='xclip -selection clipboard -r'
-alias clipo='xclip -selection clipboard -o'
+alias clip='termux-clipboard-set'
+alias clipo='termux-clipboard-get'
 
 vl(){
 	echo -n > ~/p/message
@@ -98,7 +98,7 @@ e(){
 }
 
 alias note="$EDITOR ~/p/notes"
-alias todo='$EDITOR ~/p/sec/todo'
+alias todo='$EDITOR ~/share_todo.md'
 alias  day="$EDITOR ~/p/days/2025/days +"
 
 
@@ -135,8 +135,8 @@ alias    m="make"
 alias   ma="make all"
 alias  rdl="readlink -e"
 alias   pm="pacman --noconfirm"
-alias    l="eza"
-alias   la="eza -a"
+alias    l="ls"
+alias   la="ls -a"
 alias   eb="e b"
 alias  cal="cal -m"
 
