@@ -11,9 +11,6 @@ xset r rate 200 25 # set retrigger rate
 setxkbmap de # language
 setxkbmap -option caps:super # caps
 
-## start hotkey daemon
-sxhkd &
-
 ## apply Xresources
 xrdb -merge ~/.Xresources
 
@@ -33,6 +30,7 @@ if [[ $(xrandr|grep HDMI1) ]];then
 
 	bspc monitor HDMI1  -d 1 2 3 4 5 6 7 8 9 10
 	bspc monitor eDP1  -d s1 s2 s3
+	bspc monitor -f HDMI1
 else
 	bspc monitor eDP1  -d 1 2 3 4 5 6 7 8 9 10
 fi
@@ -61,9 +59,8 @@ bspc rule -a stellarium state=tiled
 
 
 # polybar
+killall polybar
 $HOME/.config/polybar/launch.sh
-polybar-msg cmd hide
-bspc config bottom_padding 0
 
 
 # wallpaper
@@ -81,3 +78,13 @@ IN_MID=$(xinput list-props $ID|grep "Middle"|grep -v "Default" |sed -nr 's/.*\((
 xinput set-prop $ID $IN_NAT 1
 xinput set-prop $ID $IN_TAP 1
 xinput set-prop $ID $IN_MID 1
+
+
+# set bar
+polybar-msg cmd hide
+bspc config bottom_padding 0
+
+
+# start hotkey daemon
+killall sxhkd
+sxhkd &
