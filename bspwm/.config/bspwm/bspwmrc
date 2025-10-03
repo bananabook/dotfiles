@@ -18,7 +18,7 @@ xrdb -merge ~/.Xresources
 xsetroot -cursor_name arrow
 
 ## set bspwm monitors
-if [[ $(xrandr|grep HDMI1) ]];then
+if [[ $(xrandr|grep "HDMI1 conn") ]];then
 	xrandr --output HDMI1 --above eDP1
 	xrandr --output HDMI1 --primary --auto
 
@@ -50,8 +50,8 @@ bspc config gapless_monocle      true
 bspc config single_monocle       true
 bspc config automatic_scheme     alternate
 
-bspc config normal_border_color "#1D1F21"
-bspc config focused_border_color "#A54242"
+bspc config normal_border_color "#1d1f21"
+bspc config focused_border_color "#a54242"
 
 bspc rule -a Zathura state=tiled
 bspc rule -a retroarch state=tiled
