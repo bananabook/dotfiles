@@ -1,0 +1,577 @@
+#!/bin/bash
+#
+# wm independent hotkeys
+#
+
+#
+# move/resize
+#
+
+super + alt + t
+	scrcpy
+super + Return
+	bspc config -m focused borderless_monocle   false
+super + shift + Return
+	bspc config -m focused borderless_monocle   true
+
+super + ctrl + shift + 1
+	bspc node -m eDP1 --follow
+super + ctrl + shift + 2
+	bspc node -m HDMI1 --follow
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+super + ctrl + shift + {h,j,k,l}
+	bspc node -z {left -1 0,bottom 0 1,top 0 -1,right 1 0}
+super + ctrl + shift + alt + {h,j,k,l}
+	bspc node -z {right -1 0,top 0 1,bottom 0 -1,left 1 0}
+
+super + alt + {a,s,w,d}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+super + alt + shift + {a,s,w,d}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+super + alt + x
+	bspc node -g locked=on
+super + alt + shift + x
+	bspc node -g locked=off
+
+super + {_,alt +, shift +, ctrl +} numbersign
+	{~/p/script/make_16_by_9.sh, \
+	~/p/script/make_4_by_3.sh, \
+	~/p/script/make_2_by_1.sh, \
+	~/p/script/make_21_by_9.sh}
+
+# terminal emulator
+super + c
+	kitty -T Δ tmux
+	#terminator -T Terminal -e tmux
+XF86Calculator
+	gnome-calculator
+
+@Scroll_Lock
+	~/git/window_bounce/bounce.sh
+
+super + odiaeresis; {a, b, c, d, e}
+	{ \
+	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 1813 602; \
+	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 434; \
+	, \
+	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 33 602; \
+	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 434; \
+	, \
+	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 1813 22; \
+	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 1014; \
+	, \
+	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 1813 22; \
+	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 1014; \
+	, \
+	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 917 321; \
+	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 434; \
+	}
+
+super + adiaeresis
+	xdotool windowmove $(printf 0x%x $(xdotool getactivewindow) ) 13 22; \
+	xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) 722 1014
+
+
+super + udiaeresis
+	{oneko -bg black -fg grey, \
+	killall oneko; xsetroot -cursor_name arrow}
+
+super + alt + udiaeresis
+	{oneko -dog -bg black -fg grey, \
+	killall oneko; xsetroot -cursor_name arrow}
+
+#WINDOW=$(printf 0x%x $(xdotool getactivewindow) ); \
+#WIDTH=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Width|awk '{print $2}'); \
+#HEIGHT=$(xwininfo -id $(printf 0x%x $(xdotool getactivewindow) )|grep Height|awk '{print $2}'); \
+#NEW_HEIGHT=`expr $WIDTH * 9 / 16`; \
+#xdotool windowsize $(printf 0x%x $(xdotool getactivewindow) ) $WIDTH $NEW_HEIGHT; \
+
+super + alt + Delete
+	amixer -q -D pulse sset Master toggle
+
+super + Delete
+	shutdown now
+super + Home
+	sleep 0.4 && xdotool key F11
+
+#super + Delete
+#	terminator
+#super + XF86WakeUp
+#	terminator
+#super + ISO_Level3_Shift + e
+#	terminator
+#super + ü
+#	terminator
+
+super + {_,shift +} F9
+	bspc config center_pseudo_tiled {true, false}
+
+super + {_,shift +} F10
+	bspc config swallow_first_click {false, true}
+
+#super + shift + less
+#	/home/david/p/script/a
+super + Home
+	/home/david/p/script/phonevol raise
+super + End
+	/home/david/p/script/phonevol lower
+
+#super + Home
+#	nmcli connection up WLAN-458627
+#super + alt + Home
+#	nmcli connection down WLAN-458627
+#super + End
+#	nmcli radio wifi on
+#super + alt + End
+#	nmcli radio wifi off
+
+#	bspc rule -a \* -o state=floating rectangle=722x434+1173+602 && terminator
+#	bspc rule -a \* -o state=floating rectangle=722x434+1813+602 && terminator
+super + ctrl + c
+	kitty tmux attach
+
+super + ctrl + shift + c
+	bspc rule -a \* -o state=floating rectangle=722x434+33+602 && terminator
+
+super + {_,shift +, ctrl + alt +}c
+	{terminator, \
+	bspc rule -a \* -o state=floating && kitty -T Δ tmux, \
+	bspc rule -a \* -o state=pseudo_tiled && terminator}
+
+super + alt + c
+	kitty -T Terminal
+	#terminator
+#	firefox
+#	gnome-terminal
+
+#super + {_,shift +} alt +c
+#	{gnome-terminal, bspc rule -a \* -o state=floating && kitty}
+
+##tabbed
+# At given direction: join two windows into a new tabbed or add window to an existing tabbed
+#super + n; {h,j,k,l}
+#	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
+
+#	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n focused) add $(bspc query -N -n {west,south,north,east})
+
+
+# Remove current tab from tabbed
+#super + n; r
+#	~/git/ools_for_tabbed/tabc.sh $(bspc query -N -n focused) remove
+
+# Toggle polybar
+super + n
+	{polybar-msg cmd show;\
+	bspc config -m primary bottom_padding 20,\
+	bspc config -m primary bottom_padding 0;\
+	polybar-msg cmd hide}
+	#{bspc config -m primary bottom_padding 0;\
+	#polybar-msg cmd hide,\
+	#polybar-msg cmd show;\
+	#bspc config -m primary bottom_padding 20}
+
+super + ctrl + shift + Tab
+	bspc node -m next
+	#bspc node -m next --follow
+
+# Toggle cursor
+super + alt + y
+	killall unclutter
+super + alt + less
+	if [[ ! $(pgrep unclutter) ]];then unclutter -root -idle 1 --start-hidden; fi
+
+# Nautilus
+#super + alt + y
+#	nautilus -w
+
+# weblinks
+super +b
+	/home/david/p/script/a
+#super +b; {c, r, m}
+#	firefox {\
+#	https://moodle.rwth-aachen.de/course/view.php?id=12679 ,\
+#	https://moodle.rwth-aachen.de/course/view.php?id=14617&section=0#tabs-tree-start ,\
+#	https://mail.google.com/mail/u/0/#inbox}
+#super + shift + b; {c, r, m}
+#	firefox --new-window {\
+#	https://moodle.rwth-aachen.de/course/view.php?id=12679 ,\
+#	https://moodle.rwth-aachen.de/course/view.php?id=14617&section=0#tabs-tree-start ,\
+#	https://mail.google.com/mail/u/0/#inbox}
+
+# media control
+super + less
+	playerctl play-pause
+XF86AudioPlay
+	playerctl play-pause
+super + m
+	if [[ $(pgrep unclutter) ]];then A=1; killall unclutter; else A=0; fi;xmouseless;if [[ "$A" == 1 ]];then unclutter  -idle 1 --start-hidden ; fi
+
+super + comma
+	{playerctl pause; bspc node any.local.marked -g hidden=on, \
+	playerctl play;  bspc node any.local.marked -g hidden=off} 
+
+# Settings
+#super + alt + u
+#	bspc rule -a \* -o state=floating rectangle=1014x675+795+66 && gnome-control-center
+
+# firefox
+super + f
+	firefox -P simple
+super + alt + f
+	firefox --private-window
+super + alt + t
+	thunderbird
+#bspc rule -a \* -o state=floating rectangle=722x1014+1173+22 && firefox
+super + ctrl + f
+	firefox -P original
+	#nix-shell -p librewolf --command librewolf
+	#bspc rule -a \* -o state=floating rectangle=722x1014+1813+22 && firefox
+super + shift + f
+	firefox -P shadow
+	#bspc rule -a \* -o state=floating && firefox
+
+# program launcher
+#super + ctrl + space
+#	dmenu_run
+
+super + shift + space
+	rofi -show window -m -1 -theme ~/.config/rofi/example.rasi
+
+super + alt + space
+	rofi -show window -m -1 -theme ~/.config/rofi/example.rasi
+
+super + space
+  rofi -show drun -m -1 -disable-history -sort -theme ~/.config/rofi/example.rasi
+
+
+# close and kill
+super + {ctrl,ctrl + alt +} @x
+	bspc node -{c,k}
+
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,z, shift + z}
+	bspc node -t {tiled,pseudo_tiled,floating, fullscreen}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + {_,shift + }{a,s,w,d}
+	bspc node -{f,s} {west,south,north,east}
+
+# multi monitor commands
+super + ctrl + {_,alt +} Tab
+	bspc monitor -{f,d} next 
+
+# mark and swap marked
+super + period
+	bspc node -g marked=on
+
+super + minus
+	bspc node -g marked=off
+
+super + shift + period
+	bspc node any.marked -g marked=off;\ 
+	bspc node any.marked -g marked=off 
+
+super + g
+	bspc node -s any.marked.!focused 
+super + shift + g
+	bspc node -s any.marked.!focused  --follow
+
+super + alt + g
+	bspc node -f any.marked.!focused 
+
+# focus the next/previous node in the current desktop
+super + Tab
+	bspc node -f next.local.!floating
+super + shift + Tab
+	bspc node -f next.local.floating
+#super + {_,alt + }Tab
+#	bspc node -f {next,prev}.local.!floating
+#super + {_,shift + } alt + Tab
+#	bspc node -f {next,prev}.local.floating
+
+# focus the next/previous desktop in the current monitor
+super + {q,e}
+	bspc desktop -f {prev,next}.local
+super + alt + {q,e}
+	bspc desktop -f {prev,next}.local.occupied
+
+# alternate between the tiled and monocle layout
+super + {alt + ctrl ,ctrl} + y
+   bspc desktop -l {monocle,tiled}
+
+# focus or send to the given desktop
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}' -m focused
+super + shift + {1-9,0}
+	bspc node -d '^{1-9,10}'
+super + shift + alt + {1-9,0}
+	bspc node -d '^{1-9,10}' --follow -m focused
+
+super + {_,shift + }{q,e}
+	bspc {desktop -f,node -d} {prev,next}.local
+super + ctrl + shift +{q,e}
+	bspc desktop -s {prev,next}.local
+#super + ctrl + shift +{1,2,3,4,5,6,7,8,9,0}
+#	bspc desktop -s '^{1,2,3,4,5,6,7,8,9,0}'.local
+super + ctrl + alt + shift +{q,e}
+	bspc desktop -s {prev,next}.local.occupied
+super + shift + alt + {q,e}
+	bspc node -d {prev,next}.local --follow
+
+
+# move a floating window
+super + ctrl + {h,j,k,l}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+super + ctrl + {a,s,w,d}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+super + alt + ctrl + {h,j,k,l}
+	bspc node -v {-120 0,0 120,0 -120,120 0}
+super + alt + ctrl + {a,s,w,d}
+	bspc node -v {-120 0,0 120,0 -120,120 0}
+
+# rotate
+super +{ctrl,_} + r
+	bspc node @parent -R {270, 90}
+
+super + shift + r
+	bspc node @parent -R 180
+
+super + alt + r
+	bspc node @/ -R 90
+
+super + alt + shift + r
+	bspc node @/ -R 180
+
+#
+# style
+#
+
+super + alt + p
+	export border_width=$(bspc config border_width);\
+	let border_width+=1;\
+	bspc config border_width $border_width
+
+super + alt + o
+	export border_width=$(bspc config border_width);\
+	let border_width-=1;\
+	bspc config border_width $border_width
+
+super + p
+	export window_gap=$(bspc config window_gap);\
+	let window_gap+=1;\
+	bspc config window_gap $window_gap
+
+super + o
+	export window_gap=$(bspc config window_gap);\
+	let window_gap-=1;\
+	bspc config window_gap $window_gap
+
+super + alt + ctrl + o
+	bspc config border_width 0
+
+super + alt + ctrl + p
+	bspc config border_width 2
+
+super + ctrl + o
+	bspc config window_gap  0
+
+super + ctrl + p
+	bspc config window_gap  9
+
+#3
+
+# modes
+super + {_,shift +} u
+	bspc node -g sticky={on,off}
+super + alt +  u
+	bspc node -g private=on
+super + alt + shift + u
+	bspc node -g private=off
+
+#	bspc node -g private
+#super + comma
+#	bspc node -g locked=on
+#super + shift + comma
+#	bspc node -g locked=off
+
+
+# rules
+super + alt + z
+	bspc rule -a \* state=floating
+
+super + alt + shift + z
+	bspc rule -r tail
+#super + alt + shift + z
+#	bspc rule -a \* state=tiled
+
+#super + alt +{_, shift +}  z
+#	bspc rule -a \* state={floating=on, floating=off}
+
+#super + alt +{_, shift +}  z
+#	bspc rule {-a, r} \* state=floating
+
+# screenshot
+super + v
+	scrot -e 'mv $f ~/p/screenshot/'
+Print
+	scrot -e 'mv $f ~/p/screenshot/'
+
+
+super + alt + @v
+	scrot -s -e 'mv $f ~/p/screenshot/'
+
+super + ctrl + alt + @v
+	scrot -s -e 'mv $f ~/p/ocr/shot.png'; \
+	gocr -i ~/p/ocr/shot.png -o ~/p/ocr/output.txt; \
+	cat ~/p/ocr/output.txt|xclip -selection clipboard -r;
+
+#scrot --select $HOME/Pictures/'snip_%m-%d-%Y_%H-%M-%S.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+#scrot -s -e 'mv $f ~/Pictures/screenshot/'
+#source ~/p/scripts/shoot.sh
+
+## image
+#super + b
+#  feh ~/Pictures/wp/mountain.jpg
+
+# hiding
+super + i
+	bspc node -g hidden=on
+super + shift + i
+	bspc node any.hidden.local -g hidden=off
+super + shift + ctrl + i
+	bspc node {,$(bspc query -N -n .hidden | head -n1)} -g hidden=off
+
+#Brightness Control
+super + ctrl + {1,2,3,4,5,6,7,8,9,0}
+	xrandr --output eDP1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
+super + ctrl + Delete
+	xrandr --output eDP1 --brightness 0
+	#xbacklight -set {[1, 12, 23, 34, 45, 56, 67, 78, 89, 100] }
+super + ctrl + alt + {1,2,3,4,5,6,7,8,9,0}
+	xrandr --output HDMI1 --brightness {0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}
+super + ctrl + alt + Delete
+	xrandr --output HDMI1 --brightness 0
+
+super + {ctrl,shift} + less
+	xrandr --output eDP1 --brightness $(echo $(xrandr --verbose|rg -i -U "eDP1.*(\n\s.*)+"|rg "brightness: (.*)" -i -r '$1' -o) {-,+} 0.1|bc)
+
+#Volume Control
+XF86AudioLowerVolume
+	amixer -D pulse sset Master 5%-
+XF86AudioRaiseVolume
+	amixer -D pulse sset Master 5%+
+XF86AudioMute
+	amixer -q -D pulse sset Master toggle
+#XF86AudioMicMute
+#	terminator
+
+#	pactl set-source-mute 1 toggle
+
+super + alt + {1,2,3,4,5,6,7,8,9,0}
+	amixer -D pulse sset Master {10%,20%,30%,40%,50%,60%,70%,80%,90%,100%}
+
+#super + ctrl + less
+super + y
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+super + shift + y
+	pactl set-sink-volume @DEFAULT_SINK@ -1%
+#super + shift + less
+super + x
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+super + shift + x
+	pactl set-sink-volume @DEFAULT_SINK@ +1%
+
+super + dead_circumflex
+	pactl set-sink-mute @DEFAULT_SINK@ 1
+super + shift + dead_circumflex
+	pactl set-sink-mute @DEFAULT_SINK@ 0
+super + alt + dead_circumflex
+	pactl set-source-mute @DEFAULT_SOURCE@ 1
+	#amixer set Capture nocap
+super + alt + shift + dead_circumflex
+	pactl set-source-mute @DEFAULT_SOURCE@ 0
+	#amixer set Capture cap
+
+# make sxhkd reload its configuration files:
+super + F1
+	terminator
+super + ctrl + F6
+	killall sxhkd;sxhkd &
+#	pkill -USR1 -x sxhkd
+
+super + Escape
+	xlock -echokeys -echokey '*' -mode blank -background \#1d1f21 &\
+	playerctl pause
+
+super + alt +Escape
+	dm-tool switch-to-greeter
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + {ctrl + F4,ctrl + F5}
+	bspc {quit,wm -r}
+
+# tabbed
+
+# Remove current tab from tabbed
+#super + n; r
+#	source /home/david/p/tabbed/tabc.sh $(bspc query -N -n focused) remove
+
+# At given direction: join two windows into a new tabbed or add window to an existing tabbed
+#super + n; {Left,Down,Up,Right}
+#	source /home/david/p/tabbed/tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused);\
+#	notify-send ja
+
+# padd
+#super + alt + ctrl + {z,u,i,o}
+#	{\
+#	export val=$(bspc config left_padding);\
+#	let val+=1;\
+#	bspc config left_padding $val,\
+#	export val=$(bspc config bottom_padding);\
+#	let val+=1;\
+#	bspc config bottom_padding $val,\
+#	export val=$(bspc config up_padding);\
+#	let val+=1;\
+#	bspc config up_padding $val,\
+#	export val=$(bspc config right_padding);\
+#	let val+=1;\
+#	bspc config right_padding $val}
+#super + alt + shift + ctrl + {z,u,i,o}
+#	{\
+#	export val=$(bspc config left_padding);\
+#	let val-=1;\
+#	bspc config left_padding $val,\
+#	export val=$(bspc config bottom_padding);\
+#	let val-=1;\
+#	bspc config bottom_padding $val,\
+#	export val=$(bspc config up_padding);\
+#	let val-=1;\
+#	bspc config up_padding $val,\
+#	export val=$(bspc config right_padding);\
+#	let val-=1;\
+#	bspc config right_padding $val}
