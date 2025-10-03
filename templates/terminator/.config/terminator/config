@@ -1,0 +1,69 @@
+[global_config]
+  borderless = True
+  title_transmit_fg_color = "#c5c8c6"
+  title_transmit_bg_color = "{{index .Color 0}}"
+  title_inactive_fg_color = "{{index .Color 15}}"
+  title_inactive_bg_color = "{{index .Color 8}}"
+  inactive_color_offset = 1.0
+  suppress_multiple_term_dialog = True
+  title_use_system_font = False
+  title_font = Monospace Bold 9
+[keybindings]
+  go_next = None
+  go_prev = None
+  go_up = None
+  go_down = None
+  go_left = None
+  go_right = None
+  rotate_cw = <Primary><Alt>r
+  rotate_ccw = <Primary><Shift><Alt>r
+  split_horiz = None
+  split_vert = None
+  page_up = None
+  page_up_half = <Primary><Shift>m
+  page_down_half = <Primary><Shift>n
+  line_up = <Primary><Alt>m
+  line_down = <Primary><Alt>n
+  resize_up = <Primary><Shift>k
+  resize_down = <Primary><Shift>j
+  resize_left = <Primary><Shift>h
+  resize_right = <Primary><Shift>l
+  toggle_zoom = None
+  group_all = None
+  group_all_toggle = None
+  group_tab = None
+  broadcast_off = None
+  broadcast_group = None
+  broadcast_all = None
+  edit_tab_title = None
+  edit_terminal_title = None
+  layout_launcher = None
+  next_profile = <Primary><Alt>minus
+  help = None
+[profiles]
+  [[default]]
+    background_color = "#1d1f21"
+    cursor_blink = False
+    cursor_color = "#555753"
+    cursor_color_fg = False
+    font = Monospace 10
+    foreground_color = "#c5c8c6"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 500000
+    palette = "{{.Color|list}}"
+  [[hacker]]
+    cursor_color = "#aaaaaa"
+    foreground_color = "#00ff00"
+    show_titlebar = False
+    scrollbar_position = hidden
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
