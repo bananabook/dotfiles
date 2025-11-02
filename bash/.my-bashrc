@@ -58,14 +58,23 @@ tae(){
 alias clip='xclip -selection clipboard -r'
 alias clipo='xclip -selection clipboard -o'
 
+## empty the message file and then edit any copy
 vl(){
 	echo -n > ~/p/message
-	el
+	wl
 }
+## write clipboard to the message file and then edit any copy
 el(){
+	clipo > ~/p/message
+	wl
+}
+## write and copy the message file
+wl(){
 	$EDITOR ~/p/message
 	if [ -f ~/p/message ];then
 		clip < ~/p/message
+	else
+		echo Could not open message file >/dev/stderr
 	fi
 }
 
