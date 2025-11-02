@@ -162,7 +162,7 @@ alias  cal="cal -m"
 o(){
   setsid -f xdg-open "$*" >/dev/null 2>&1
 }
-cmkdir(){
+mcd(){
 	mkdir $1
 	cd $_
 }
