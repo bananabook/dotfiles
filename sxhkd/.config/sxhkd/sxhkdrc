@@ -3,7 +3,7 @@
 super + c
 	kitty -T Δ tmux
 super + ctrl + c
-	kitty -T Δ
+	kitty -T Δ bash
 ## firefox
 super + f
 	firefox -P simple
@@ -11,8 +11,6 @@ super + f
 super + space
 	rofi -show drun -m -1 -disable-history -sort -theme ~/.config/rofi/example.rasi
 super + shift + space
-	rofi -show window -m -1 -theme ~/.config/rofi/example.rasi
-super + alt + space
 	rofi -show window -m -1 -theme ~/.config/rofi/example.rasi
 
 # quit/restart bspwm
@@ -26,12 +24,15 @@ super + n
 	bspc config -m primary bottom_padding 0;\
 	polybar-msg cmd hide}
 
-# focus/move the node in the given direction
+# focus node
 super + {a,s,w,d}
 	bspc node -f {west,south,north,east}
-super + {_,shift + }{q,e}
-	bspc {desktop -f,node -d} {prev,next}.local
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}' -m focused
+super + {q,e}
+	bspc desktop -f {prev,next}.local
 
+# move node
 super + shift + a
 	if bspc query -N focused.floating >/dev/null;then \
 		bspc node -v -20 0;\
@@ -57,6 +58,15 @@ super + shift + d
 		bspc node -s east;\
 	fi
 
+super + shift + {q,e}
+	bspc node -d {prev,next}.local
+super + shift + alt + {q,e}
+	bspc node -d {prev,next}.local --follow
+super + shift + {1-9,0}
+	bspc node -d '^{1-9,10}'
+super + shift + alt + {1-9,0}
+	bspc node -d '^{1-9,10}' --follow -m focused
+
 # resize
 super + alt + {a,s,w,d}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
@@ -70,20 +80,35 @@ super + {ctrl,ctrl + alt +} @x
 # multi monitor commands
 super + ctrl + {_,alt +} Tab
 	bspc monitor -{f,d} next 
+super + ctrl + shift + Tab
+	bspc node -m next
+super + ctrl + shift + alt + Tab
+	bspc node -m next --follow
 
 # media control
 super + less
 	playerctl play-pause
 XF86AudioPlay
 	playerctl play-pause
+super + {_,shift + } y
+	pactl set-sink-volume @DEFAULT_SINK@ -{5,1}%
+super + {_,shift + } x
+	pactl set-sink-volume @DEFAULT_SINK@ +{5,1}%
+super + {_,shift + } dead_circumflex
+	pactl set-sink-mute @DEFAULT_SINK@ {1,0}
+super + alt + {_,shift + } dead_circumflex
+	pactl set-source-mute @DEFAULT_SOURCE@ {1,0}
+super + v
+	scrot -e 'mv $f ~/p/screenshot/'
+
+# mouse
 super + m
-	if [[ $(pgrep unclutter) ]];then A=1; killall unclutter; else A=0; fi;xmouseless;if [[ "$A" == 1 ]];then unclutter  -idle 1 --start-hidden ; fi
+	if [[ $(pgrep unclutter) ]];then A=1; killall unclutter; else A=0; fi;xmouseless;if [[ "$A" == 1 ]];then unclutter -idle 1 --start-hidden ; fi
 
 # floating
 ## focus the next/previous node in the current desktop
 super + Tab
 	bspc node -f next.local.floating
-
 super + t
 	bspc node -t floating
 super + shift + t
@@ -92,9 +117,23 @@ super + z
 	bspc desktop -l monocle
 super + shift + z
 	bspc desktop -l tiled
+super + ctrl + z
+	bspc node -g hidden=on
+super + ctrl + shift + z
+	bspc node any.hidden.local -g hidden=off
+
+# rotate
+super +{ctrl,_} + r
+	bspc node @parent -R {270, 90}
 
 # screen lock
 super + Escape
-	xlock -echokeys -echokey '*' -mode blank -background \#1d1f21 &\
+	xlock -echokeys -echokey '*' -mode blank -background \#000000 &\
 	playerctl pause
 
+
+# custom
+super + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12}
+	$HOME/p/script/auto '{1,2,3,4,5,6,7,8,9,10,11,12}'
+super + {u,i,o,p}
+	$HOME/p/script/auto '{u,i,o,p}'
