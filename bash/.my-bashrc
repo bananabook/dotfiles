@@ -129,7 +129,7 @@ alias shut='shutdown now;echo bye'
 alias   vs="code ."
 alias fire="firefox"
 alias    y="nvim"
-alias   gs="git s"
+#alias   gs="git s"
 alias   fj="firejail"
 alias    m="make"
 alias   ma="make all"
@@ -143,7 +143,7 @@ alias  cal="cal -m"
 o(){
   setsid -f xdg-open "$*" >/dev/null 2>&1
 }
-cmkdir(){
+mcd(){
 	mkdir $1
 	cd $_
 }
@@ -155,3 +155,4 @@ alias sudo="/usr/bin/sudo "
 
 
 # unsorted
+alias xq="yq -p xml -o json"
