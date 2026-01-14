@@ -18,21 +18,21 @@ xrdb -merge ~/.Xresources
 xsetroot -cursor_name arrow
 
 ## set bspwm monitors
-if [[ $(xrandr|grep "HDMI1 conn") ]];then
-	xrandr --output HDMI1 --above eDP1
-	xrandr --output HDMI1 --primary --auto
+if [[ $(xrandr|grep "HDMI-1 conn") ]];then
+	xrandr --output HDMI-1 --above eDP-1
+	xrandr --output HDMI-1 --primary --auto
 
-	for monitor in {HDMI1,eDP1};do
+	for monitor in {HDMI-1,eDP-1};do
 		for pad in { bottom_padding, left_padding, top_padding, right_padding };do
 			bspc config -m $monitor $pad 0
 		done
 	done
 
-	bspc monitor HDMI1  -d 1 2 3 4 5 6 7 8 9 10
-	bspc monitor eDP1  -d s1 s2 s3
-	bspc monitor -f HDMI1
+	bspc monitor HDMI-1  -d 1 2 3 4 5 6 7 8 9 10
+	bspc monitor eDP-1  -d s1 s2 s3
+	bspc monitor -f HDMI-1
 else
-	bspc monitor eDP1  -d 1 2 3 4 5 6 7 8 9 10
+	bspc monitor eDP-1  -d 1 2 3 4 5 6 7 8 9 10
 fi
 
 killall unclutter
