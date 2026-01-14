@@ -130,7 +130,7 @@ alias ......='cd ../../../../..'
 
 alias hh="cd ~/p/hack"
 
-alias i='cd $(lf -print-last-dir)'
+#alias i='cd $(lf -print-last-dir)'
 
 c(){
 	cd $@
@@ -174,3 +174,17 @@ alias sudo="/usr/bin/sudo "
 
 
 # unsorted
+
+i(){
+	tmp="$(mktemp)"
+	lf -last-dir-path="$tmp" "$@"
+	if [ -f "$tmp" ]; then
+		dir="$(cat "$tmp")"
+		rm -f "$tmp"
+		if [ -d "$dir" ]; then
+			if [ "$dir" != "$(pwd)" ]; then
+				cd "$dir"
+			fi
+		fi
+	fi
+}
