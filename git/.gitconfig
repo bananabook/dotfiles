@@ -26,3 +26,5 @@
 	tool = vimdiff
 [merge]
 	tool = vimdiff
+[safe]
+	directory = /storage/emulated/0/00ICH/sec/Obsidian
