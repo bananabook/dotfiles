@@ -3,6 +3,10 @@ export EDITOR=vim
 export PS1="\[\e[0;32m\]p\wΣ\[\e[0m\] "
 set -o emacs
 
+if which moar 2>/dev/null 1>&2;then
+	export PAGER="moar -quit-if-one-screen"
+fi
+
 ## function to avoid duplicates
 for dir in "$HOME/go/bin" "$HOME/p/script/"; do
     case ":$PATH:" in
@@ -22,11 +26,14 @@ alias x="bash -c 'while ! ping -i 1 1.1.1.1 ; do sleep 1 ; done'"
 
 
 # docker
-alias d="sudo docker"
+alias   d="sudo docker"
 alias drr="sudo docker run --privileged --hostname hacker --device /dev/snd --device=/dev/net/tun --cap-add=net_admin -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -it"
-alias dx="sudo docker run -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix"
-alias dr="sudo docker run"
-alias xh="xhost +local:root"
+alias  dx="sudo docker run -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix"
+alias  dr="sudo docker run"
+dip(){
+	sudo docker inspect "$*" | jq '.[0].NetworkSettings.Networks.container_default.IPAddress' -r
+}
+alias  xh="xhost +local:root"
 
 
 # tmux
@@ -51,15 +58,23 @@ tae(){
 alias clip='termux-clipboard-set'
 alias clipo='termux-clipboard-get'
 
+## empty the message file and then edit any copy
 vl(){
 	echo -n > ~/p/message
-	el
+	wl
 }
+## write clipboard to the message file and then edit any copy
 el(){
 	clipo > ~/p/message
+	wl
+}
+## write and copy the message file
+wl(){
 	$EDITOR ~/p/message
 	if [ -f ~/p/message ];then
 		clip < ~/p/message
+	else
+		echo Could not open message file >/dev/stderr
 	fi
 }
 
@@ -92,7 +107,10 @@ e(){
 	s|ssh)
 		$EDITOR ~/.ssh/config;;
 	n|nvim)
+		cd ~/.config/nvim/
 		$EDITOR ~/.config/nvim/init.vim;;
+	y)
+		$EDITOR ~/.config/nvim/init.lua;;
 	g|git)
 		$EDITOR ~/.gitconfig;;
 	esac

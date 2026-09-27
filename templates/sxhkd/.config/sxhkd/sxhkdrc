@@ -128,7 +128,7 @@ super +{ctrl,_} + r
 
 # screen lock
 super + Escape
-	xlock -echokeys -echokey '*' -mode blank -background \#000000 &\
+	xlock -echokeys -echokey '*' -mode blank -background \{{.Background}} &\
 	playerctl pause
 
 

@@ -1,0 +1,44 @@
+set recolor
+
+map <C-+> zoom in
+map <C--> zoom out
+
+map w zoom out
+map e zoom in
+
+map u navigate next
+map i navigate previous
+
+map b toggle_statusbar
+map z set recolor
+
+#map y set first-page-column 1
+#map x :set first-page-column 2
+
+set recolor-lightcolor \{{.Background|up}}
+set recolor-darkcolor \{{index .Color 15|up}}
+
+set default-bg \{{.Background|up}}
+set default-fg \{{.Foreground|up}}
+
+set statusbar-bg \{{.Background|up}}
+set statusbar-fg \{{.Foreground|up}}
+
+set inputbar-bg \{{.Background|up}}
+set inputbar-fg \{{.Foreground|up}}
+
+set notification-bg \{{.Background|up}}
+set notification-fg \{{.Foreground|up}}
+
+set highlight-color \{{index .Color 1|up}}
+set highlight-active-color \{{index .Color 2|up}}
+
+set recolor-keephue
+#set recolor-reverse-video
+
+set selection-clipboard clipboard
+
+set window-title-page true
+set page-cache-size 100
+
+set guioptions none
