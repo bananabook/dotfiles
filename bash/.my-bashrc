@@ -1,5 +1,5 @@
 # setting
-export EDITOR=nvim
+export EDITOR=vim
 export PS1="\[\e[0;32m\]p\wΣ\[\e[0m\] "
 set -o emacs
 
@@ -56,6 +56,7 @@ vl(){
 	el
 }
 el(){
+	clipo > ~/p/message
 	$EDITOR ~/p/message
 	if [ -f ~/p/message ];then
 		clip < ~/p/message
