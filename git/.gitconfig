@@ -7,6 +7,7 @@
 	sw = switch
 	a  = add
 	r  = restore
+	rs = restore --staged
 	c  = commit
 	co = checkout
 	b  = branch
@@ -15,6 +16,7 @@
 	pl = pull
 	ps = push
 	pp = !"git pull && git push"
+	p  = !"git pull && git push"
 	l  = "log --pretty=format:'%C(auto)%h %Cred%<( 16 )%ah %Cblue%<(7,trunc)%an%C(auto) %s%C(auto)%d'"
 	lb = "log --pretty=format:'%C(auto)%h %Cred%<( 16 )%ah %Cblue%<( 12 )%an%C(auto) %C(auto)%d\n%B'"
 	lg = "l --graph"

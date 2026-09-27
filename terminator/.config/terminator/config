@@ -1,9 +1,9 @@
 [global_config]
   borderless = True
   title_transmit_fg_color = "#c5c8c6"
-  title_transmit_bg_color = "#282a2e"
-  title_inactive_fg_color = "#c5c8c6"
-  title_inactive_bg_color = "#373b41"
+  title_transmit_bg_color = "#000000"
+  title_inactive_fg_color = "#ffffff"
+  title_inactive_bg_color = "#808080"
   inactive_color_offset = 1.0
   suppress_multiple_term_dialog = True
   title_use_system_font = False
@@ -51,7 +51,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 500000
-    palette = "#282a2e:#a54242:#8c9440:#de935f:#5f819d:#85678f:#5e8d87:#707880:#373b41:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#c5c8c6"
+    palette = "#000000:#ff0000:#33ff00:#ff0099:#0066ff:#cc00ff:#00ffff:#d0d0d0:#808080:#ff0000:#33ff00:#ff0099:#0066ff:#cc00ff:#00ffff:#ffffff"
   [[hacker]]
     cursor_color = "#aaaaaa"
     foreground_color = "#00ff00"

@@ -39,34 +39,34 @@ int("9D",16) is 157
 
 */
 * {
-    red:                         rgba ( 127, 66, 66, 100 % );
-    blue:                        rgba ( 127, 127, 95, 100 % );
-    green:                       rgba ( 127, 127, 64, 100 % );
-    foreground:                  rgba ( 127, 127, 127, 100 % );
-    background:                  rgba ( 29, 31, 33, 100 % );
+    red:                         rgba ( 255, 0, 0, 100 % );
+    blue:                        rgba ( 255, 0, 153, 100 % );
+    green:                       rgba ( 51, 255, 0, 100 % );
+    foreground:                  rgba ( 208, 208, 208, 100 % );
+    background:                  rgba ( 0, 0, 0, 100 % );
 
     selected-normal-foreground:  @background;
     normal-foreground:           @foreground;
     alternate-normal-background: @background;
     selected-urgent-foreground:  @blue;
     urgent-foreground:           @foreground;
-    alternate-urgent-background: rgba ( 95, 127, 127, 100 % );
+    alternate-urgent-background: rgba ( 0, 102, 255, 100 % );
     active-foreground:           @foreground;
-    lightbg:                     rgba ( 127, 103, 127, 100 % );
+    lightbg:                     rgba ( 204, 0, 255, 100 % );
     selected-active-foreground:  @background;
-    alternate-active-background: rgba ( 94, 127, 127, 100 % );
+    alternate-active-background: rgba ( 0, 255, 255, 100 % );
     bordercolor:                 @red;
     alternate-normal-foreground: @foreground;
     normal-background:           @background;
-    lightfg:                     rgba ( 112, 120, 127, 100 % );
+    lightfg:                     rgba ( 208, 208, 208, 100 % );
     selected-normal-background:  @blue;
     border-color:                @red;
     spacing:                     2;
-    separatorcolor:              rgba ( 55, 59, 65, 100 % );
-    urgent-background:           rgba ( 127, 102, 102, 100 % );
-    selected-urgent-background:  rgba ( 127, 127, 104, 100 % );
+    separatorcolor:              rgba ( 128, 128, 128, 100 % );
+    urgent-background:           rgba ( 255, 0, 0, 100 % );
+    selected-urgent-background:  rgba ( 51, 255, 0, 100 % );
     alternate-urgent-foreground: @urgent-foreground;
-    background-color:            rgba ( 127, 127, 116, 0 % );
+    background-color:            rgba ( 255, 0, 153, 0 % );
     alternate-active-foreground: @active-foreground;
     active-background:           @background;
     selected-active-background:  @blue;

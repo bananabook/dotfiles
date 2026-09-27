@@ -154,8 +154,9 @@ alias    m="make"
 alias   ma="make all"
 alias  rdl="readlink -e"
 alias   pm="pacman --noconfirm"
-alias    l="eza"
-alias   la="eza -a"
+alias     l="ls -F"
+#alias    l="eza"
+#alias   la="eza -a"
 alias   eb="e b"
 alias  cal="cal -m"
 
@@ -171,6 +172,7 @@ mcd(){
 # recurse
 alias watch="watch "
 alias sudo="/usr/bin/sudo "
+alias s="sudo systemctl"
 
 
 # unsorted
@@ -187,4 +189,8 @@ i(){
 			fi
 		fi
 	fi
+}
+alias px="chmod u+x"
+gr(){
+	cd $(git rev-parse --show-toplevel)
 }
