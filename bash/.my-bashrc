@@ -130,7 +130,7 @@ alias ......='cd ../../../../..'
 
 alias hh="cd ~/p/hack"
 
-alias i='cd $(lf -print-last-dir)'
+#alias i='cd $(lf -print-last-dir)'
 
 c(){
 	cd $@
@@ -154,8 +154,8 @@ alias    m="make"
 alias   ma="make all"
 alias  rdl="readlink -e"
 alias   pm="pacman --noconfirm"
-alias    l="ls"
 alias   la="ls -a"
+alias     l="ls -F"
 alias   eb="e b"
 alias  cal="cal -m"
 
@@ -171,7 +171,26 @@ mcd(){
 # recurse
 alias watch="watch "
 alias sudo="/usr/bin/sudo "
+alias s="sudo systemctl"
 
 
 # unsorted
 alias xq="yq -p xml -o json"
+
+i(){
+	tmp="$(mktemp)"
+	lf -last-dir-path="$tmp" "$@"
+	if [ -f "$tmp" ]; then
+		dir="$(cat "$tmp")"
+		rm -f "$tmp"
+		if [ -d "$dir" ]; then
+			if [ "$dir" != "$(pwd)" ]; then
+				cd "$dir"
+			fi
+		fi
+	fi
+}
+alias px="chmod u+x"
+gr(){
+	cd $(git rev-parse --show-toplevel)
+}
